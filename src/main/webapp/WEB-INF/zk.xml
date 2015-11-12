@@ -1,113 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <zk>
-	<device-config>
-		<device-type>ajax</device-type>
-		<!-- fix for labelauty -->
-		<embed><![CDATA[<script>
-			zk.afterLoad('zul.wgt', function() {
-				var xCheckbox = {};
-				zk.override(zul.wgt.Checkbox.prototype, xCheckbox, {
-					setChecked: function (checked) {
-						if (zk.mobile) {
-							this._checked = checked;
-							if (this.desktop) {
-								var n = this.$n('real');
-								checked ? jq(n).attr('checked', 'checked') : jq(n).removeAttr('checked');
-								n.checked = checked || false;
-								jq(n).removeClass('z-icon-check');
-								if (checked && n.type == 'checkbox')
-									jq(n).addClass('z-icon-check');
-							}
-						} else {
-							xCheckbox.setChecked.apply(this, arguments);
-						}
-					}
-				});
-			});
-			</script>]]>
-		</embed>
-	</device-config>
-
 	<client-config>
 		<data-handler>
-			<name>slimscroll</name>
-			<script src="/keyfeature1/scripts/jquery.slimscroll.min.js"/>
-			<script>
-				function(wgt, dataValue) {
-					myScrollDiv = wgt.$n();
-					myScrollable = jq(myScrollDiv);
-					myScrollable.slimScroll(dataValue);
-				 	if(dataValue.scrollToEnd){
-			            var binder = zkbind.$(myScrollDiv);
-			            binder.after(dataValue.scrollToEnd, function() {
-							myScrollable.slimScroll({ scrollBy: myScrollDiv.scrollHeight });
-			            });
-		            }					
-				}
-			</script>
-		</data-handler>
-		<data-handler>
-			<name>labelauty</name>
-			<link href="/keyfeature3/scripts/auty/jquery-labelauty.css" rel="stylesheet" />
-			<script src="/keyfeature3/scripts/auty/jquery-labelauty.js"/>
-			<script>
-				function (wgt, dataValue) {
-					jq(wgt._subnodes.real).labelauty(dataValue);
-				}
-			</script>
-		</data-handler>
-		<data-handler>
-			<name>syntax-highlight</name>
-			<link href="/keyfeature3/scripts/hightlights/default.min.css" rel="stylesheet" />
-			<script src="/keyfeature3/scripts/hightlights/highlight.min.js"/>
-			<script>
-				function (wgt, dataValue) {
-					hljs.configure(dataValue);
-					jq(wgt.$n()).each(function(i, block) {
-					    hljs.highlightBlock(block);
-					});
-					wgt.setOverride("setValue", function(dataValue) {
-						this.$setValue(dataValue);
-						jq(wgt.$n()).each(function(i, block) {
-						    hljs.highlightBlock(block);
-						});
-					});
-				}
-			</script>
-		</data-handler>
-		<data-handler>
-			<name>markdown</name>
-			<script src="/keyfeature3/scripts/markdown/showdown.min.js"/>
-			<script>
-				function (wgt, dataValue) {
-					var converter = new showdown.Converter();
-					wgt.$n().innerHTML = converter.makeHtml(wgt.getValue());
-					wgt.setOverride("setValue", function(value) {
-						this.$setValue(value);
-						this.$n().innerHTML = converter.makeHtml(value);
-					});
-				}
-			</script>
-		</data-handler>
-		<data-handler>
-			<name>mask</name>
-			<script src="/keyfeature3/scripts/mask/jquery.mask.min.js"/>
-			<script>
-				function (wgt, dataValue) {
-					jq(wgt.$n()).mask(dataValue);
-					wgt.listen({onChange: function (event) {
-						event.data.value = jq(this.$n()).cleanVal();
-					}});
-				}
-			</script>
-		</data-handler>
-		<data-handler>
 			<name>chartist-pie</name>
-		    <link rel="stylesheet" href="/keyfeature3/scripts/chartist/chartist.min.css"/>
-		    <script src="/keyfeature3/scripts/chartist/chartist.min.js"></script>
-		    <script src="/keyfeature3/scripts/chartist/matchMedia.js"></script>
-		    <script src="/keyfeature3/scripts/chartist/matchMedia.addListener.js"></script>
+		    <link rel="stylesheet" href="/chartist/scripts/chartist.min.css"/>
+		    <script src="/chartist/scripts/chartist.min.js"></script>
+		    <script src="/chartist/scripts/matchMedia.js"></script>
+		    <script src="/chartistscripts/matchMedia.addListener.js"></script>
 			<script>
 				function (wgt, dataValue) {
 					var renderChart = function(value) {
@@ -120,43 +20,6 @@
 				}
 			</script>
 		</data-handler>
-	    <data-handler>
-			<name>codeMirror</name>
-			<link rel="stylesheet" type="text/css" href="/resources/css/codemirror.css"/>
-            <script src="/resources/js/codemirror.js"/>
-       		<script src="/resources/js/xml.js"/>
-            <script>
-	            function(wgt, dataValue) {
-            		var myTextArea = wgt.$n();
-					var editor = CodeMirror.fromTextArea(myTextArea, 
-						{lineNumbers: true, mode: "xml", textWrapping: true, lineWrapping: true, scrollbarStyle: "native", readOnly:true}
-					);
-					editor.setSize("auto", dataValue.height);
-
-					/*integrate with bs-tabs*/
-					var tabPane = jq(wgt).closest('.tab-pane');
-					if(tabPane.length == 1) {
-						var tab = jq('a[data-toggle=tab][href=#' + tabPane.attr('id') + ']')
-						tab.on('shown.bs.tab', function() {
-							editor.refresh();
-						});
-					}
-					/*integrate with bs-tabs*/
-				}
-   			 </script>
-	    </data-handler>
-	    <data-handler>
-			<name>draggable-panel</name>
-			<script src="/resources/js/jquery-ui.min.js" />
-			<script>
-	            function(wgt, dataValue) {
-					jq(wgt).draggable({
-						handle: dataValue.handle,
-						containment: jq(wgt).closest(dataValue.containment)
-					});
-				}
-			</script>
-	    </data-handler>
 	</client-config>
 	<session-config>
 		<device-type>ajax</device-type>    

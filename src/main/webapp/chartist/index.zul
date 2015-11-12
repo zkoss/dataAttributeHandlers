@@ -1,0 +1,8 @@
+<zk xmlns:ca="client/attribute">
+	<style src="css/custom-style.css" />
+	<div viewModel="@id('vm') @init('org.zkoss.chartist.ChartistViewModel')">
+		<label height="200px" hflex="1" sclass="ct-golden-section"
+			value="@load(vm.percentage)"
+			ca:data-chartist-pie='{"total": "100"}' />
+	</div>
+</zk>
