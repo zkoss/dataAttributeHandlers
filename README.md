@@ -9,8 +9,9 @@ Official contest page:
 2. create your owned folder under `webapp`, naming convention follows Java variable naming convention, e..g `appName`.
 If you encounter a name conflict, add your name as a prefix like `authorNameAppName`.
 3. put all your required resources (js, css) under your owned folder) to avoid affecting other contesttants'.
-4. complete your handlers. Java package name convention is `org.zkoss.authorname.appname`
+4. complete your handlers. Java package name convention is `org.zkoss.authorname.appname`.
 5. create a `index.zul` under your folder to demonstrate your handler.
+6. send a pull request your result to us.
 
 # Notice
 1. Do not modify other constestants' files or configurations.
