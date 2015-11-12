@@ -1,0 +1,5 @@
+<zk>
+<vlayout sclass="highlightContent">
+<textbox rows="5" width="100%" value="@bind(vm.syntax)" instant="true" />
+</vlayout>
+</zk>

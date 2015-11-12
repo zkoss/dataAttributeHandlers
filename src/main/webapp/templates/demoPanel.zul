@@ -1,0 +1,7 @@
+<zk xmlns:n="native" xmlns:sh="shadow" xmlns:ca="client/attribute">
+	<div zclass="demo-panel" sclass="${sclass}">
+		<attribute ca:name="data-draggable-panel" if="${!empty draggable}"><![CDATA[{"handle": ".demo-panel-header", "containment": "section"}]]></attribute>
+		<n:div class="demo-panel-header"/>
+		<sh:apply template="panelContent"/>
+	</div>
+</zk>

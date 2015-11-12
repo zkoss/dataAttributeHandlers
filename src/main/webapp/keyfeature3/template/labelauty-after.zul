@@ -1,0 +1,11 @@
+<zk xmlns:ca="client/attribute">
+<vlayout sclass="labelautyContent">
+<checkbox checked="@bind(vm.zk)"
+	ca:data-labelauty='{"checked_label": "I am skilled at ZK", "unchecked_label": "I am still learning ZK"}' />
+<checkbox checked="@bind(vm.like)"
+	ca:data-labelauty='{"class": "labelauty terms-icon", "checked_label": "I like JDK 8", "unchecked_label": "I don&#39;t like JDK 8"}' />
+<checkbox
+	ca:data-labelauty='{"class": "labelauty disable-icon", "checked_label": "I am disabled", "unchecked_label": "I am disabled"}'
+	disabled="true" />
+</vlayout>
+</zk>

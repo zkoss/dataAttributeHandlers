@@ -1,0 +1,34 @@
+<zk>
+<vlayout sclass="maskContent">
+<hlayout hflex="1">
+	<div hflex="1">
+		<label value="Collection Time: " />
+	</div>
+	<textbox hflex="2" value="21143513" />
+</hlayout>
+<hlayout hflex="1">
+	<div hflex="1">
+		<label value="Delivery Date: " />
+	</div>
+	<textbox hflex="2" value="10122015" />
+</hlayout>
+<hlayout hflex="1">
+	<div hflex="1">
+		<label value="Tracking No.: " />
+	</div>
+	<textbox hflex="2" value="AAA000000" />
+</hlayout>
+<hlayout hflex="1">
+	<div hflex="1">
+		<label value="Price: " />
+	</div>
+	<textbox hflex="2" value="9999999" />
+</hlayout>
+<hlayout hflex="1" >
+	<div hflex="1">
+		<label value="Contact No.: " />
+	</div>
+	<textbox hflex="2" value="12153333333" />
+</hlayout>
+</vlayout>
+</zk>

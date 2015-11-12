@@ -1,0 +1,6 @@
+<zk xmlns:ca="client/attribute" xmlns:n="native">
+<vlayout sclass="highlightContent">
+<label pre="true" ca:data-syntax-highlight="{useBR: true}"
+	value="@load(vm.syntax)" />
+</vlayout>
+</zk>

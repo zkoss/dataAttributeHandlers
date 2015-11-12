@@ -1,0 +1,65 @@
+.demo-section .tooltip-anchor {
+	position: relative;
+	height: 0px;
+	width: 0px;
+}
+.demo-section .tooltip-toggle {
+	position: absolute;
+	display: block;
+	left: -7px;
+	top: -7px;
+	width: 14px;
+	height: 14px;
+	border-radius: 50%;
+	background-color: #e95d22;
+	-webkit-animation: flashing 1.5s infinite;
+	animation: flashing 1.5s infinite;
+	z-index: 1;
+}
+
+.ie9 .demo-section .tooltip-toggle {
+	left: -14px;
+	top: -14px;
+	width: 28px;
+	height: 28px;
+	border: 8px solid #ee7931;
+	border-radius: 50%;
+	background-color: #e6510e;
+	opacity: 0.9;
+}
+.demo-section .tooltip-content {
+	display: none;
+}
+@-webkit-keyframes flashing {
+  from {
+    -webkit-transform: scale(0.8);
+    opacity: 0;
+  }
+  20% {
+    -webkit-transform: scale(1);
+    opacity: 1;
+  }
+  to {
+    -webkit-transform: scale(2);
+    opacity: 0.0;
+  }
+}
+@keyframes flashing {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  20% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: scale(2);
+    opacity: 0.0;
+  }
+}
+.popover {
+	max-width: 500px;
+	color: #6f6f6f;
+	box-shadow: none; 
+}

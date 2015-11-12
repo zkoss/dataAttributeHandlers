@@ -1,0 +1,6 @@
+<zk xmlns:ca="client/attribute">
+<vlayout sclass="markdownContent">
+<label ca:data-markdown="true" multiline="true"
+	value="@load(vm.markdown)" />
+</vlayout>
+</zk>

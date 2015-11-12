@@ -1,0 +1,9 @@
+<zk>
+<vlayout sclass="labelautyContent">
+<checkbox checked="@bind(vm.zk)"
+	label="@load(vm.zk ? 'I am skilled at ZK' : 'I am still learning ZK')" />
+<checkbox checked="@bind(vm.like)"
+	label="@load(vm.like ? 'I like JDK 8' : 'I don\'t like JDK 8')" />
+<checkbox label="I am disabled" disabled="true" />
+</vlayout>
+</zk>

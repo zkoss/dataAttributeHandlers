@@ -1,0 +1,39 @@
+.CodeMirror-gutter .CodeMirror-linenumbers{
+	background-color: #ffffff;
+	font-size: 10px;
+}
+.demo-feature2-code .CodeMirror {
+	height: 95px;
+	background-color: #464646;
+	color: #ffffff;
+}
+.demo-feature2-code .CodeMirror-gutters {
+	background-color: #464646;
+	color: #999999;
+}
+.demo-feature2-code .cm-s-default .cm-comment {
+	color: #b5a79a;
+}
+.demo-feature2-code .cm-s-default .cm-tag,
+.demo-feature2-code .cm-s-default .cm-attribute {
+	color: #ffffff;
+}
+.demo-feature2-code .cm-s-default .cm-string {
+	color: #de7d80;
+}
+.demo-feature1-code .cm-s-default .cm-comment,
+.demo-feature3 .cm-s-default .cm-comment {
+    color: #636363 ;
+}
+.demo-feature1-code .cm-s-default .cm-tag,
+.demo-feature3 .cm-s-default .cm-tag {
+    color: #1c1c1c ;
+}
+.demo-feature1-code .cm-s-default .cm-attribute,
+.demo-feature3 .cm-s-default .cm-attribute {
+    color: #1c1c1c ;
+}
+.demo-feature1-code .cm-s-default .cm-string,
+.demo-feature3 .cm-s-default .cm-string {
+    color: #746bae ;
+}
