@@ -1,12 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zk>
+	<session-config>
+		<device-type>ajax</device-type>    
+		<timeout-uri></timeout-uri>    
+	</session-config>
+	<client-config>
+	    <debug-js>true</debug-js>
+	</client-config>
+	<library-property>
+	    <name>org.zkoss.web.classWebResource.cache</name>
+	    <value>false</value>
+	</library-property>
 	<client-config>
 		<data-handler>
 			<name>chartist-pie</name>
 		    <link rel="stylesheet" href="/chartist/scripts/chartist.min.css"/>
 		    <script src="/chartist/scripts/chartist.min.js"></script>
 		    <script src="/chartist/scripts/matchMedia.js"></script>
-		    <script src="/chartistscripts/matchMedia.addListener.js"></script>
+		    <script src="/chartist/scripts/matchMedia.addListener.js"></script>
 			<script>
 				function (wgt, dataValue) {
 					var renderChart = function(value) {
@@ -20,15 +31,5 @@
 			</script>
 		</data-handler>
 	</client-config>
-	<session-config>
-		<device-type>ajax</device-type>    
-		<timeout-uri></timeout-uri>    
-	</session-config>
-	<client-config>
-	    <debug-js>true</debug-js>
-	</client-config>
-	<library-property>
-	    <name>org.zkoss.web.classWebResource.cache</name>
-	    <value>false</value>
-	</library-property>
+
 </zk>
