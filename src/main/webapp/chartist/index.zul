@@ -1,10 +1,12 @@
 <zk xmlns:ca="client/attribute">
 	<style src="css/custom-style.css" />
 	<label multiline="true">
-	1. Describe the functions and usages clearly. 
+	Author: Hawk Chen
+	3rd Party Library: Chartist https://gionkunz.github.io/chartist-js/
+	1. Describe the functions you have done and how to use it clearly, e.g. this handler can convert a label into a pie chart.
 	2. Then, reviewers can easily find out what you have done and give worthy score for them.
 	</label>
-	<div viewModel="@id('vm') @init('org.zkoss.chartist.ChartistViewModel')">
+	<div viewModel="@id('vm') @init('org.zkoss.handlers.chartist.ChartistViewModel')">
 		<label height="200px" hflex="1" sclass="ct-golden-section"
 			value="@load(vm.percentage)"
 			ca:data-chartist-pie='{"total": "100"}' />

@@ -1,4 +1,4 @@
-package org.zkoss.chartist;
+package org.zkoss.handlers.chartist;
 
 
 public class ChartistViewModel {
