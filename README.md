@@ -1,6 +1,6 @@
 # Overview
 
-This project is a host of the data attribute handlers submitted by all contestants. Please reference ZK sample under `src/webapp/chartist` to build your owned one. It is distributed under Apache License 2.0.
+This project is a host of the data attribute handlers submitted by all contestants. Please reference ZK sample under `src/main/webapp/chartist` to build your owned one. It is distributed under Apache License 2.0.
 
 Official contest page: 
 
