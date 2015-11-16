@@ -22,8 +22,11 @@ If you encounter a naming conflict, add your name as a prefix like `authorNameAp
 1. Never modify other constestants' files or configurations.
 
 # Reference Articles
+
+To get started with ZK 8's data attribute handler feature, check out the following resources:
+
 1. [http://blog.zkoss.org/index.php/2015/08/25/zk8-simple-but-powerful-using-data-handler-api-to-work-with-front-end-technologies/](http://blog.zkoss.org/index.php/2015/08/25/zk8-simple-but-powerful-using-data-handler-api-to-work-with-front-end-technologies/)
 2. [http://books.zkoss.org/wiki/ZUML_Reference/ZUML/Namespaces/Client_Attribute](http://books.zkoss.org/wiki/ZUML_Reference/ZUML/Namespaces/Client_Attribute)
 
 # License and Copyright
-All 3rd party libraries and templates used in the project are owned by their copyright owners. Your example code should be licensed under Apache License 2.0 or another OSI-approved open source license specified in your project.
+All 3rd party libraries and templates used in the project are owned by their copyright owners. Your example code that integrates ZK and the 3rd party libarary should be licensed under Apache License 2.0 or any other OSI-approved open source license specified in your project.
