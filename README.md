@@ -14,7 +14,7 @@ If you encounter a name conflict, add your name as a prefix like `authorNameAppN
 5. create a `index.zul` under your folder to demonstrate your handler.
 6. Create at least one screenshot for your application under `appName/screenshot/`. 
 7. send a pull request of your result to us.
-8. If you provide sufficient data and don't violate any rules, we will accept
+8. If you provide sufficient data and don't violate any rules, we will accept your pull request.
 
 # Notice
 1. Do not modify other constestants' files or configurations.
