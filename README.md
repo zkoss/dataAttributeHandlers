@@ -19,7 +19,7 @@ If you encounter a naming conflict, add your name as a prefix like `authorNameAp
 8. If you provide sufficient data and don't violate any rules, we will accept your pull request.
 
 # Notice
-1. Do not modify other constestants' files or configurations.
+1. Never modify other constestants' files or configurations.
 
 # Reference Articles
 1. [http://blog.zkoss.org/index.php/2015/08/25/zk8-simple-but-powerful-using-data-handler-api-to-work-with-front-end-technologies/](http://blog.zkoss.org/index.php/2015/08/25/zk8-simple-but-powerful-using-data-handler-api-to-work-with-front-end-technologies/)
