@@ -26,4 +26,4 @@ If you encounter a naming conflict, add your name as a prefix like `authorNameAp
 2. [http://books.zkoss.org/wiki/ZUML_Reference/ZUML/Namespaces/Client_Attribute](http://books.zkoss.org/wiki/ZUML_Reference/ZUML/Namespaces/Client_Attribute)
 
 # License and Copyright
-All 3rd party libraries and templates used in the project are owned by their copyright owners. Your example code should be licensed under Apache License 2.0 or another OSI-approved open source libarary specified in your project.
+All 3rd party libraries and templates used in the project are owned by their copyright owners. Your example code should be licensed under Apache License 2.0 or another OSI-approved open source license specified in your project.
