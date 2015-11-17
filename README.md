@@ -21,7 +21,8 @@ If you encounter a naming conflict, add your name as a prefix like `authorNameAp
 8. If you have successfully integrated a 3rd party library with ZK 8's data-handler and followed all the instructions to provide sufficient details and did not violate any rules, we will accept your pull request. Yours will then become one of the qualified candidate projects.
 
 # Notice
-1. Never modify other contestants' files or configurations.
+
+Never modify other contestants' files or configurations.
 
 # References
 
