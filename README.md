@@ -2,7 +2,7 @@
 
 This is the project home for ZK's data-attribute-handler contest. Once the candidate projects from all participants have being reviewed, they will be pushed into this repository. 
 
-Official Contest Page: 
+Official Contest Page: http://blog.zkoss.org/index.php/2015/11/19/data-attribute-handler-contest/
 
 # The Procedure
 
