@@ -17,7 +17,7 @@ If you encounter a naming conflict, add your name as a prefix like `authorNameAp
 4. Complete your handlers. Java package name convention is `org.zkoss.handlers.authorname.appname`.
 5. Create an `index.zul` under your folder to store your handler. Include your name and information on the 3rd party library on the index page as demonstrated in the chartist sample project.
 6. Create at least one screenshot for your application under `appName/screenshot/`. You can also submit a short video.
-7. Send a pull request of your result to us, and at the same time, submit your application form at (link to google form)
+7. Send a pull request of your result to us, and at the same time, submit your application form here: https://docs.google.com/forms/d/1QdSe6keTIN9XjruUFd8QBexaePXaEs-hmzGhP6x-v8Q/viewform
 8. If you have successfully integrated a 3rd party library with ZK 8's data-handler and followed all the instructions to provide sufficient details and did not violate any rules, we will accept your pull request. Yours will then become one of the qualified candidate projects.
 
 # Notice
