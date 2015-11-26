@@ -1,0 +1,47 @@
+<zk>
+    <window title="QrCode component created with datahandler by chillworld" viewModel="@id('vm')@init('org.zkoss.handlers.chillworld.qrcode.vm.IndexVM')">
+        <label multiline="true">
+            Author: Cossaer Filip
+            3rd Party Library: qrcode http://davidshimjs.github.io/qrcodejs/
+            1. This handler converts a ZK component(ex div, a, label) to a Qrcode.
+            2. QrCode is normally a single jar file (https://github.com/chillworld/qrcode) so you can install it easy.
+            Everything is configured there, so only adding the dependency will activate the qrcode and qrcodelabel tag.
+            It will also activate the datahandler so the 3th possibility is also possible when adding the dependency.
+            3. In this example I cannot change the pom but adding this(http://stackoverflow.com/questions/20161602/loading-maven-dependencies-from-github) :
+            <repository>
+            <id>jitpack.io</id>
+            <url>https://jitpack.io</url>
+            </repository>
+                
+            <dependency>
+            <groupId>com.github.chillworld</groupId>
+            <artifactId>qrcode</artifactId>
+            <version>1.0.0</version>
+            </dependency>
+                
+                will add the dependency and you can change :
+                
+                <label use="..." /> to <qrcodelabel /> 
+                <a use="..." /> to <qrcode /> 
+                
+             4. Width and height is fix in px while the datahandler can choose his attribute with initialisation, if not set default 256px.
+                As you can see in the 3th example we choose a div and set the qrcode to sclass.
+                Changing the sclass dynamicly will result in other qrcode.
+             5. For components where you want to set href you need to use the  ca:data-qrcode-href because otherwise the link remains static.
+             6. For components where you want to set value you can use the ca:data-qrcode-value so the value is cleared in the component.
+             
+        </label>
+        <hlayout>
+            <label use="org.zkoss.handlers.chillworld.qrcode.components.QrCodeLabel" value="@load(vm.link)" width="100" height="100"/>
+            <button label="change" onClick="@command('changeLink')"/>
+        </hlayout>
+        <hlayout>
+            <a use="org.zkoss.handlers.chillworld.qrcode.components.QrCode" href="@load(vm.secondLink)" width="150" height="150"/>
+            <button label="change" onClick="@command('changeSecondLink')"/>
+        </hlayout>
+        <hlayout>
+            <div xmlns:ca="client/attribute" ca:data-qrcode="sclass" sclass="@load(vm.thirthLink)"/>
+            <button label="change" onClick="@command('changeThirthLink')"/>
+        </hlayout>
+    </window>
+</zk>
