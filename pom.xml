@@ -70,11 +70,6 @@
 			<artifactId>zuti</artifactId>
 			<version>${zk.version}</version>
 		</dependency>
-		<dependency>
-			<groupId>net.sourceforge.csvjdbc</groupId>
-			<artifactId>csvjdbc</artifactId>
-			<version>1.0.25</version>
-		</dependency>
 	</dependencies>
 	<build>
 		<finalName>${project.artifactId}</finalName>
