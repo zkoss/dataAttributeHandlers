@@ -1,0 +1,37 @@
+<zk xmlns:ca="client/attribute">
+	<label>Author: Mathieu Piette</label>
+	<separator />
+	<label>3rd Party Library: CamanJS (http://camanjs.com)</label>
+	<separator />
+	<label>
+		This handler can modify the contrast and the brightness of an
+		image. Usage is pretty straighforward: use an Image component
+		with use="org.zkoss.handlers.jimp.Jimp" then you just have to
+		specify the contrast and brightness attributes.
+	</label>
+	<separator />
+	<label>
+		The name "Jimp" mean "Javascript Image ManiPulation". It is
+		awful but I could not come with something better.
+	</label>
+
+	<div
+		viewModel="@id('vm') @init('org.zkoss.handlers.jimp.JimpViewModel')">
+		<image
+			use="org.zkoss.handlers.jimp.Jimp"
+			src="/jimp/images/cat.jpeg"
+			contrast="@load(vm.contrast)"
+			brightness="@load(vm.brightness)" />
+
+		<vbox>
+			<hbox>
+				<label value="Contrast" />
+				<slider maxpos="10" curpos="@bind(vm.contrast)" />
+			</hbox>
+			<hbox>
+				<label value="Brightness" />
+				<slider maxpos="50" curpos="@bind(vm.brightness)" />
+			</hbox>
+		</vbox>
+	</div>
+</zk>

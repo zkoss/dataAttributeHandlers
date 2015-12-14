@@ -132,5 +132,10 @@
                 }
             </script>
         </data-handler>
+		<data-handler>
+			<name>jimp</name>
+			<script src="/jimp/scripts/caman.full.pack.js" />
+			<script src="/jimp/scripts/data-jimp.js" />
+		</data-handler>
     </client-config>
 </zk>
