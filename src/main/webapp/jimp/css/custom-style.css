@@ -1,0 +1,10 @@
+.image, .controls {
+	border-radius: 4px;
+	border: 1px solid #ccc;
+}
+
+.controls span.z-label {
+	display: inline-block;
+	width: 120px;
+	margin-left: 10px;
+}

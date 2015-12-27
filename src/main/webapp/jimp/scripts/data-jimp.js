@@ -3,6 +3,7 @@ function (wgt, dataValue) {
 		this
 			.contrast(dataValue.contrast)
 			.brightness(dataValue.brightness)
+			.colorize(dataValue.color, 20)
 			.render();
 	});
 }
