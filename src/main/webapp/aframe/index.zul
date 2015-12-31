@@ -1,0 +1,25 @@
+<zk xmlns:ca="client/attribute">
+	<html><![CDATA[
+	Author: Mangos Goo
+	<br/>
+	3rd Party Library: Aframe <a href="https://github.com/aframevr/aframe">https://github.com/aframevr/aframe</a>
+	<br/>
+	1. This data handler is to use A-Frame which is a framework for creating virtual reality web experiences that work across desktop, mobile, and the Oculus Rift.
+	<br/>
+    2. The usage is the same as this - <a href="https://aframe.io/examples/showcase/helloworld/">https://aframe.io/examples/showcase/helloworld/</a>
+    <br/>
+        You need to specify each attribute with the prefix 'data-aframe-'. for example,
+        <br/>
+        <pre><code>&lt;a-sphere position="0 1.25 -1" radius="1.25" color="#EF2D5E"></a-sphere></code></pre>
+        To be.
+        <pre><code>&lt;div ca:data-aframe="sphere" ca:data-aframe-position="0 1.25 -1" ca:data-aframe-radius="1.25" ca:data-aframe-color="#EF2D5E"/></code></pre>
+        <br/>
+	]]></html>
+	<div ca:data-aframe="scene" width="800px" height="600px">
+        <div ca:data-aframe="sphere" ca:data-aframe-position="0 1.25 -1" ca:data-aframe-radius="1.25" ca:data-aframe-color="#EF2D5E"/>
+        <div ca:data-aframe="cube" ca:data-aframe-position="-1 0.5 1" ca:data-aframe-rotation="0 45 0" ca:data-aframe-width="1" ca:data-aframe-height="1" ca:data-aframe-depth="1" ca:data-aframe-color="#4CC3D9"/>
+        <div ca:data-aframe="cylinder" ca:data-aframe-position="1 0.75 1" ca:data-aframe-radius="0.5" ca:data-aframe-height="1.5" ca:data-aframe-color="#FFC65D"/>
+        <div ca:data-aframe="plane" ca:data-aframe-rotation="-90 0 0" ca:data-aframe-width="4" ca:data-aframe-height="4" ca:data-aframe-color="#7BC8A4"/>
+        <div ca:data-aframe="sky" ca:data-aframe-color="#ECECEC"/>
+    </div>
+</zk>
