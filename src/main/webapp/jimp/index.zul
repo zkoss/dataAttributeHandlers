@@ -1,93 +1,132 @@
 <?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c"?>
 
 <window xmlns:ca="client/attribute"
-	viewModel="@id('vm') @init('org.zkoss.handlers.jimp.JimpViewModel')">
+	viewModel="@id('vm') @init('org.zkoss.handlers.jimp.JimpViewModel')"
+	id="myWindow">
 	<style src="css/custom-style.css" />
 
-	<html>
-		<![CDATA[ <h2>Author</h2>
+	<hbox hflex="1" vflex="1" align="center" pack="center">
 
-		<p>Mathieu Piette, <a
-		href="https://twitter.com/mathieupiette">@mathieupiette</a>.</p>
+		<vbox hflex="1" vflex="1">
 
-		<h2>Third party library used</h2>
+			<html>
+				<![CDATA[ <h2>Author</h2>
 
-		<p>CamanJS, <a href="http://camanjs.com">camanjs.com</a>.</p>
+				<p>Mathieu Piette, <a
+				href="https://twitter.com/mathieupiette">@mathieupiette</a>.</p>
 
-		<h2>Description</h2>
+				<h2>Third party library used</h2>
 
-		<p> This handler can modify the contrast and the brightness of
-		an image, as well as coloring it. Usage is pretty
-		straighforward: use an <code>Image</code> component with
-		<code>use="org.zkoss.handlers.jimp.Jimp"</code> then you just
-		have to specify the <code>contrast</code>,
-		<code>brightness</code> and <code>color</code> attributes. </p>
+				<p>CamanJS, <a
+				href="http://camanjs.com">camanjs.com</a>.</p>
 
-		<p> I used a custom class
-		(<code>org.zkoss.handlers.jimp.Jimp</code>) instead of the
-		default <code>org.zkoss.zul.Image</code>, so I can have custom
-		attributes that are easily bindable to fields of the ViewModel.
-		See how the <code>contrast</code>, <code>brightness</code> and
-		<code>color</code> in this example are just plain fields, but
-		the datahandler API makes it very easy to get them in Javascript
-		to call the 3rd party library that updates the picture. </p>
+				<h2>Description</h2>
 
-		<p> In this example, I resolved a little difficulty that was not
-		in the <a href="../chartist/index.zul">chartist example</a>.
-		While the chartist example needs only one attribute (just the
-		percentage), I wanted to have three (contrast, brightness,
-		color). The usage of the custom class for the <code>Image</code>
-		component solved a part of this problem: I can have three
-		attributes on the <code>Image</code> component that are bound to
-		three different fields of the ViewModel.</p>
+				<p> This handler can modify the contrast and the
+				brightness of an image, as well as coloring it. Usage is
+				pretty straighforward: use an <code>Image</code>
+				component with
+				<code>use="org.zkoss.handlers.jimp.Jimp"</code> then you
+				just have to specify the <code>contrast</code>,
+				<code>brightness</code> and <code>color</code>
+				attributes. </p>
 
-		<p>I also needed to pass three arguments to the Javascript data
-		handler, but I can only change one data-attribute. The solution
-		was to use Json: whenever one of the three attributes is
-		changed, a Json map is generated and is set as the value of the
-		<code>data-jimp</code> attribute of the <code>Image</code>
-		element. A change of <code>data-jimp</code> triggers ZK's
-		Data-Attribute handler and I can get my Json map in Javascript,
-		thus having access to all three attributes.</p>
+				<p> I used a custom class
+				(<code>org.zkoss.handlers.jimp.Jimp</code>) instead of
+				the default <code>org.zkoss.zul.Image</code>, so I can
+				have custom attributes that are easily bindable to
+				fields of the ViewModel. See how the
+				<code>contrast</code>, <code>brightness</code> and
+				<code>color</code> in this example are just plain
+				fields, but the datahandler API makes it very easy to
+				get them in Javascript to call the 3rd party library
+				that updates the picture. </p>
 
-		<p>The name <q>Jimp</q> mean <q><em>J</em>avascript
-		<em>I</em>mage <em>M</em>ani<em>P</em>ulation</q>. I realize it
-		is awful but I could not come with something better. </p>
+				<p> In this example, I resolved a little difficulty that
+				was not in the <a href="../chartist/index.zul">chartist
+				example</a>. While the chartist example needs only one
+				attribute (just the percentage), I wanted to have three
+				(contrast, brightness, color). The usage of the custom
+				class for the <code>Image</code> component solved a part
+				of this problem: I can have three attributes on the
+				<code>Image</code> component that are bound to three
+				different fields of the ViewModel.</p>
 
-		<p>The cat on the picture is Nico. He's my cat and has a
-		message for you: <q>meow meow, meeeooow *purrrrrrrr*</q>. He's
-		proud that he's now a member of the ZK community.</p>]]>
+				<p>I also needed to pass three arguments to the
+				Javascript data handler, but I can only change one
+				data-attribute. The solution was to use Json: whenever
+				one of the three attributes is changed, a Json map is
+				generated and is set as the value of the
+				<code>data-jimp</code> attribute of the
+				<code>Image</code> element. A change of
+				<code>data-jimp</code> triggers ZK's Data-Attribute
+				handler and I can get my Json map in Javascript, thus
+				having access to all three attributes.</p>
+
+				<p>Once the client-side calculation of the processed
+				image is done, the processed image is sent back to the
+				server thanks to Client-Binding:
+				caman's<code>render()</code> function accepts a callback
+				function as an argument. It's automatically called once
+				the calculation is done. I use this callback to call a
+				command of the ViewModel with, as an argument, the
+				processed image data.</p>
+
+				<p>Having the processed image data in the ViewModel is
+				handy, because I can bind it to an other component. If I
+				had server-side traetments to apply to the processed
+				image, I could also do it easily.</p>
+
+				<p>The name <q>Jimp</q> mean <q><em>J</em>avascript
+				<em>I</em>mage <em>M</em>ani<em>P</em>ulation</q>. I
+				realize it is awful but I could not come with something
+				better.</p>
+
+				<p>The cat on the picture is Nico. He's my cat and has a
+				message for you: <q>meow meow, meeeooow
+				*purrrrrrrr*</q>. He's proud that he's now a member of
+				the ZK community.</p>]]>
 	</html>
 
-	<separator />
-
-	<vbox pack="center" align="center" vflex="1" width="100%">
-		<image use="org.zkoss.handlers.jimp.Jimp"
-			src="/jimp/images/cat.jpeg" color="@load(vm.color)"
-			contrast="@load(vm.contrast)" brightness="@load(vm.brightness)"
-			sclass="image"
-			style="@load(c:cat('box-shadow:0 0 50px ', vm.color))" />
-
-		<separator />
-
-		<vbox sclass="controls" width="450px" align="center">
-			<separator />
-			<hbox hflex="1">
-				<label
-					value="@load(c:cat3('Contrast (', vm.contrast, ')'))" />
-				<slider maxpos="10" curpos="@bind(vm.contrast)" />
-			</hbox>
-			<hbox hflex="1">
-				<label
-					value="@load(c:cat3('Brightness (', vm.brightness, ')'))" />
-				<slider maxpos="50" curpos="@bind(vm.brightness)" />
-			</hbox>
-			<hbox hflex="1">
-				<label value="@load(c:cat3('Color (', vm.color, ')'))" />
-				<colorbox id="colorPicker" width="100px" height="25px"
-					value="@bind(vm.color)" />
-			</hbox>
-			<separator />
 		</vbox>
-	</vbox>
+
+		<splitter collapse="before" />
+
+		<vbox pack="center" align="center" vflex="1" hflex="1">
+			<image use="org.zkoss.handlers.jimp.Jimp"
+				src="/jimp/images/cat.jpeg" color="@load(vm.color)"
+				contrast="@load(vm.contrast)" brightness="@load(vm.brightness)"
+				sclass="image" id="jimpimage"
+				style="@load(c:cat('box-shadow:0 0 50px ', vm.color))" />
+
+			<separator />
+
+			<vbox sclass="controls" width="450px" align="center">
+				<separator />
+				<hbox hflex="1">
+					<label
+						value="@load(c:cat3('Contrast (', vm.contrast, ')'))" />
+					<slider maxpos="10" curpos="@bind(vm.contrast)" />
+				</hbox>
+				<hbox hflex="1">
+					<label
+						value="@load(c:cat3('Brightness (', vm.brightness, ')'))" />
+					<slider maxpos="50" curpos="@bind(vm.brightness)" />
+				</hbox>
+				<hbox hflex="1">
+					<label
+						value="@load(c:cat3('Color (', vm.color, ')'))" />
+					<colorbox id="colorPicker" width="100px"
+						height="25px" value="@bind(vm.color)" />
+				</hbox>
+				<separator />
+			</vbox>
+
+			<separator />
+
+			<image src="@load(vm.jpegData)" />
+
+		</vbox>
+
+	</hbox>
 </window>
