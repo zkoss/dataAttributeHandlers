@@ -174,5 +174,10 @@
                 })()
             ]]></script>
         </data-handler>
+        <data-handler>
+            <name>aframe</name>
+            <script src="/aframe/js/aframe.js"></script>
+            <script src="/aframe/js/aframe-handler.js"></script>
+        </data-handler>
     </client-config>
 </zk>
