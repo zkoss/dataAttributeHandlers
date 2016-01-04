@@ -179,5 +179,11 @@
             <script src="/aframe/js/aframe.js"></script>
             <script src="/aframe/js/aframe-handler.js"></script>
         </data-handler>
+        <data-handler>
+            <name>gauge</name>
+            <script src="/gauge/scripts/d3.v2.js"></script>
+            <script src="/gauge/scripts/gauge.js"></script>
+            <script src="/gauge/scripts/data-gauge.js"/>
+        </data-handler>
     </client-config>
 </zk>
