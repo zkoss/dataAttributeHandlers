@@ -132,5 +132,47 @@
                 }
             </script>
         </data-handler>
+        <data-handler>
+            <name>pdf-target</name>
+            <script src="/pdfGenerator/js/jspdf.min.js"></script>
+            <script src="/pdfGenerator/js/html2canvas.min.js"></script>
+            <script><![CDATA[
+                 (function () {
+                var a4  =[ 595.28,  841.89];  // for a4 size paper width and height
+
+                function createPDF(target) {
+                    var cache_width = target.width();
+                    getCanvas(target).then(function(canvas) {
+                        var img = canvas.toDataURL("image/png");
+                        var doc = new jsPDF({
+                            unit:'px',
+                            format:'a4'
+                        });
+                        doc.addImage(img, 'JPEG', 20, 20);
+                        doc.save('test.pdf');
+                        target.width(cache_width);
+                    });
+                }
+
+                // create canvas object
+                function getCanvas(target) {
+                    target.css('max-width','none');
+                        return html2canvas(target,{
+                        imageTimeout:2000,
+                        removeContainer:true
+                    });
+                }
+
+                return function (wgt, option) {
+                    jq(wgt.$n()).click(function () {
+                        var w = zk.Widget.$('$' + option);
+                        if (w) {
+                            createPDF(jq(w.$n()));
+                        }
+                    });
+                };
+                })()
+            ]]></script>
+        </data-handler>
     </client-config>
 </zk>
