@@ -1,0 +1,45 @@
+<?page title="Data Handler: Gauge"?>
+<zk xmlns:ca="client/attribute">
+	<include src="readme.zul"/>
+	<separator orient="horizontal" height="20px"/>
+	<hbox width="100%" align="center" pack="center">
+		<groupbox>
+			<!-- Memory Gauge -->
+			<span width="200px" viewModel="@id('memory') @init('org.zkoss.handlers.edwin.gauge.MemoryGaugeVM')"
+				sclass="@load(memory.value)"
+				ca:data-gauge='{"label": "Memory", "min" : 0, "max" : 100}' >
+				<button label="Refresh Memory Gauge" onClick="@command('updateGauge')"/>
+				<hlayout>
+					<textbox width="70px"/><button label="Set Value" onClick="@command('setValue', stringValue=self.previousSibling.value)"/>
+				</hlayout>
+			</span>
+		</groupbox>
+		<groupbox>
+			<!-- CPU Gauge -->
+			<span width="200px" viewModel="@id('cpu') @init('org.zkoss.handlers.edwin.gauge.CPUGaugeVM')"
+				sclass="@load(cpu.value)"
+				ca:data-gauge='{"label": "CPU", "min" : 0, "max" : 100}'>
+				<button label="Refresh CPU Gauge" onClick="@command('updateGauge')"/>
+				<hlayout>
+					<textbox width="70px"/><button label="Set Value" onClick="@command('setValue', stringValue=self.previousSibling.value)"/>
+				</hlayout>
+			</span>
+		</groupbox>
+		<groupbox>
+			<!-- Weather Gauge -->
+			<span width="200px" viewModel="@id('weather') @init('org.zkoss.handlers.edwin.gauge.WeatherGaugeVM')"
+				sclass="@load(weather.value)"
+				ca:data-gauge='{"label": "Weather", "min" : -50, "max" : 90}'>
+				<button label="Refresh Weather Gauge" onClick="@command('updateGauge')"/>
+				<hlayout>
+					<textbox width="70px"/><button label="Set Value" onClick="@command('setValue', stringValue=self.previousSibling.value)"/>
+				</hlayout>
+			</span>
+		</groupbox>
+	</hbox>
+	<separator orient="horizontal" bar="true" height="30px"/>
+	<hbox width="100%" align="center" pack="center" apply="org.zkoss.bind.BindComposer" >
+		<button label="Refresh All Gauges" onClick="@global-command('updateGauge')"/>
+	</hbox>
+
+</zk>

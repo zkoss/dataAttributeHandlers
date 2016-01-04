@@ -1,0 +1,21 @@
+
+<window border="normal" title="Data Handler: Gauge" xmlns:x="xhtml">
+	<label multiline="true">
+	Author: Edwin Yu
+	
+	3rd Party Library: 
+		1. 3d.js  http://d3js.org, version 2
+		2. gauge.js: http://tomerdoron.blogspot.com/2011/12/google-style-gauges-using-d3js.html
+
+	Description:
+		This Gauge UI displays a value between the min and max values.  The value can be set 
+		from the server or from the client user.  A base gauge view model can be subclassed to
+		show specific-purpose measurement.  In the samples below, three subclasses are created
+		to show the CPU, memory, and weather.
+		
+	Usage:
+		The label, min, and max are specified as part of the zul element's attribute.  The view model
+		subclass provides the value.
+		&lt;span ... ca:data-gauge='{"label": "CPU", "min" : 0, "max" : 100}'/&gt;
+	</label>
+</window>
