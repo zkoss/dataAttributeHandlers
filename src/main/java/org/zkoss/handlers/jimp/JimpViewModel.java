@@ -19,6 +19,8 @@ public class JimpViewModel {
 	 * The base-64 encoded jpeg data of the processed image.
 	 */
 	private String jpegData;
+	
+	private int opacity = 50;
 
 	@Command
 	@NotifyChange("jpegData")
@@ -42,6 +44,10 @@ public class JimpViewModel {
 		return jpegData;
 	}
 
+	public int getOpacity() {
+		return opacity;
+	}
+
 	public void setBrightness(int brightness) {
 		this.brightness = brightness;
 	}
@@ -56,6 +62,10 @@ public class JimpViewModel {
 
 	public void setJpegData(String jpegData) {
 		this.jpegData = jpegData;
+	}
+
+	public void setOpacity(int opacity) {
+		this.opacity = opacity;
 	}
 
 }

@@ -8,3 +8,23 @@
 	width: 120px;
 	margin-left: 10px;
 }
+
+.previewOpacity, .previewWidth {
+	position: relative;
+}
+
+.previewOpacity img, .previewWidth img {
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+div.beforeWrapper {
+	width: 100px;
+	height: 200px;
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	overflow: hidden;
+	border-left: 1px solid #000;
+}
