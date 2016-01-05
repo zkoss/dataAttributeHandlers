@@ -1,3 +1,15 @@
+[class*="z-"]:not([class*="z-icon-"]) {
+	font-family: 'Roboto', sans-serif;
+}
+
+body *:not ([class*="z-icon-"]) {
+	font-family: 'Roboto', sans-serif;
+}
+
+code {
+	font-family: 'Roboto Mono', monospace;
+}
+
 .image, .controls {
 	border-radius: 4px;
 	border: 1px solid #ccc;
@@ -27,4 +39,11 @@ div.beforeWrapper {
 	right: 0px;
 	overflow: hidden;
 	border-left: 1px solid #000;
+}
+
+.boring-info {
+	line-height: 19px;
+	padding-left: 5px;
+	padding-right: 5px;
+	display: inline-block;
 }
