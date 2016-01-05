@@ -57,7 +57,7 @@
 
 				<p>Once the client-side calculation of the processed image is
 				done, the processed image is sent back to the server thanks to
-				Client-Binding: caman's<code>render()</code> function accepts a
+				Client-Binding: caman's <code>render()</code> function accepts a
 				callback function as an argument. It's automatically called once
 				the calculation is done. I use this callback to call a command
 				of the ViewModel with, as an argument, the processed image
@@ -65,8 +65,17 @@
 
 				<p>Having the processed image data in the ViewModel is handy,
 				because I can bind it to an other component, like I did for the
-				previews. If I had server-side traetments to apply to the
+				previews. If I had server-side treatments to apply to the
 				processed image, I could also do them easily.</p>
+
+				<p>Sometimes you just want a preview and don't want to waste
+				bandwidth with high data transfers. In that case a
+				full-client-side solution is better. In
+				<code>data-jimp.js</code>, I also set the processed data as the
+				source of an <code>img</code> element, so everything stays at
+				the client side. The opacity preview uses the value from the
+				ViewModel while the side-by-side preview uses client-side only
+				data.</p>
 
 				<p>The name <q>Jimp</q> mean <q><em>J</em>avascript
 				<em>I</em>mage <em>M</em>ani<em>P</em>ulation</q>. I realize it
@@ -81,11 +90,11 @@
 
 		<splitter collapse="before" />
 
-		<vbox pack="center" align="center" vflex="1" hflex="1">
+		<vbox align="center" vflex="1" hflex="1">
 			<image use="org.zkoss.handlers.jimp.Jimp"
 				src="/jimp/images/cat.jpeg" color="@load(vm.color)"
 				contrast="@load(vm.contrast)" brightness="@load(vm.brightness)"
-				sclass="image" id="jimpimage"
+				sclass="image" id="jimpimage" ca:data-jimp-source="cat"
 				style="@load(c:cat('box-shadow:0 0 50px ', vm.color))" />
 
 			<separator />
@@ -115,25 +124,34 @@
 			<vbox>
 
 				<hbox width="450px" pack="center">
-					<hbox sclass="previewOpacity" width="200px"
-						height="200px">
-						<image src="/jimp/images/cat.jpeg" width="200px"
-							height="200px" />
-						<image src="@load(vm.jpegData)" width="200px"
-							height="200px" style="@load(c:cat('opacity: ', vm.opacity/100))" />
-					</hbox>
+					<vbox>
+						<label>Opacity preview</label>
+						<label>(processed data comes from the ViewModel)</label>
+						<hbox sclass="previewOpacity" width="200px"
+							height="200px">
+							<image src="/jimp/images/cat.jpeg" width="200px"
+								height="200px" />
+							<image src="@load(vm.jpegData)" width="200px"
+								height="200px" style="@load(c:cat('opacity: ', vm.opacity/100))" />
+						</hbox>
+					</vbox>
 
 					<separator />
 
-					<hbox sclass="previewWidth" width="200px" height="200px">
-						<image src="@load(vm.jpegData)" width="200px"
-							height="200px" />
-						<div sclass="beforeWrapper" height="200px"
-							width="@load(c:cat(200 - vm.opacity * 2, 'px'))">
-							<image sclass="before" src="/jimp/images/cat.jpeg"
-								width="200px" height="200px" />
-						</div>
-					</hbox>
+					<vbox>
+						<label>Side-by-side preview</label>
+						<label>(processed data stays at the client side)</label>
+						<hbox sclass="previewWidth" width="200px"
+							height="200px">
+							<image ca:data-jimp-destination="cat" width="200px"
+								height="200px" />
+							<div sclass="beforeWrapper" height="200px"
+								width="@load(c:cat(200 - vm.opacity * 2, 'px'))">
+								<image sclass="before"
+									src="/jimp/images/cat.jpeg" width="200px" height="200px" />
+							</div>
+						</hbox>
+					</vbox>
 				</hbox>
 
 				<vbox sclass="controls" width="450px" align="center">
