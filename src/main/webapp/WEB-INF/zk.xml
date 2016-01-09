@@ -185,5 +185,20 @@
             <script src="/gauge/scripts/gauge.js"></script>
             <script src="/gauge/scripts/data-gauge.js"/>
         </data-handler>
-    </client-config>
+       <data-handler>
+            <name>zkddslick</name> <!-- data-zkddslick -->
+			<script src="/ctracker/3rdparty/ddslick/jquery.ddslick.js"></script>  <!-- ddslick Library -->          
+            <script src="/ctracker/js/ddslickHandler.js"></script>  <!-- Data Handler Script -->
+        </data-handler>
+        <data-handler>
+            <name>zkctracker</name>  <!-- data-zkctracker -->
+			<script src="/ctracker/3rdparty/jquery-ui/js/jquery-ui-1.10.4.custom.js"></script>  <!-- Provides API to create JQuery UI widgets -->          
+            <script src="/ctracker/3rdparty/svg/svg.js"></script> <!-- Lightweight library for manipulating and animating SVG -->
+            <script src="/ctracker/3rdparty/svg/svg.filter.js"></script>  <!-- svg.js plugin to adding filter functionality -->
+            <script src="/ctracker/3rdparty/svg/svg.draggable.js"></script>  <!-- svg.js plugin to make svg elements draggable -->
+            <link href="/ctracker/js/jquery.ctracker.css" rel="stylesheet"/> <!-- zkctracker - Graphics Chat css -->
+            <script src="/ctracker/js/jquery.ctracker.js"></script>  <!-- zkctracker - Graphics Chat Library -->
+            <script src="/ctracker/js/ctrackerHandler.js"></script>  <!-- Data Handler Script -->
+        </data-handler>
+	</client-config>
 </zk>

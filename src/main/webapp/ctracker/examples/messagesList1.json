@@ -1,0 +1,85 @@
+{
+  "messages": [
+    {
+      "id": 1,
+      "time": "Sun Dec 27 09:36:01 CET 2015",
+      "from": "David",
+      "text": "Good afternoon. Can I help you?"
+    },
+    {
+      "id": 2,
+      "time": "Sun Dec 27 09:36:47 CET 2015",
+      "from": "Elena",
+      "text": "Yes, please. We'd like to check in."
+    },
+    {
+      "id": 3,
+      "time": "Sun Dec 27 09:37:01 CET 2015",
+      "from": "David",
+      "text": "Sure. What's your name, please?"
+    },
+    {
+      "id": 4,
+      "time": "Sun Dec 27 09:38:47 CET 2015",
+      "from": "Elena",
+      "text": "It's Elena Brown."
+    },
+    {
+      "id": 5,
+      "time": "Sun Dec 27 09:39:30 CET 2015",
+      "from": "Jacob",
+      "text": "It's Jacob Brown. We've booked a room for two people for tonight."
+    },
+    {
+      "id": 6,
+      "time": "Sun Dec 27 09:40:01 CET 2015",
+      "from": "David",
+      "text": "OK. Could I have your ID cards?"
+    },
+    {
+      "id": 7,
+      "time": "Sun Dec 27 09:40:34 CET 2015",
+      "from": "Elena",
+      "text": "Yes, here they are."
+    },
+    {
+      "id": 8,
+      "time": "Sun Dec 27 09:40:54 CET 2015",
+      "from": "David",
+      "text": "Thank you and can you sign this form, please?"
+    },
+    {
+      "id": 9,
+      "time": "Sun Dec 27 09:41:04 CET 2015",
+      "from": "Elena",
+      "text": "Yes, of course"
+    },
+    {
+      "id": 10,
+      "time": "Sun Dec 27 09:41:45 CET 2015",
+      "from": "Jacob",
+      "text": "What time do we have to check out?"
+    },
+    {
+      "id": 11,
+      "time": "Sun Dec 27 09:42:02 CET 2015",
+      "from": "David",
+      "text": "You have to leave the room by 10 a.m."
+    }
+  ],
+  "users": [
+    {
+      "id": "David",
+      "image": "images/user_male1.png"
+    },
+    {
+      "id": "Jacob",
+      "image": "images/user_male2.png"
+    },
+    {
+      "id": "Elena",
+      "image": "images/user_female.png"
+    }
+  ],
+  "selectedIndex": 0
+}

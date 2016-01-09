@@ -1,0 +1,26 @@
+{  
+   "data":[  
+      {  
+         "text":"David",
+         "value":"David",
+         "selected":false,
+         "description":"Description of David",
+         "imageSrc":"images/user_male1.png"
+      },
+      {  
+         "text":"Jacob",
+         "value":"Jacob",
+         "selected":false,
+         "description":"Description of Jacob",
+         "imageSrc":"images/user_male2.png"
+      },
+      {  
+         "text":"Elena",
+         "value":"Elena",
+         "selected":false,
+         "description":"Description of Elena",
+         "imageSrc":"images/user_female.png"
+      }
+   ],
+   "placeHolder":"Select user ..."
+}
