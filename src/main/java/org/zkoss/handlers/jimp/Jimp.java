@@ -11,17 +11,21 @@ public class Jimp extends Image {
 	private int brightness;
 	private String color;
 	private int contrast;
+	private boolean sendToServer;
 
 	public int getBrightness() {
 		return brightness;
 	}
-
 	public String getColor() {
 		return color;
 	}
 
 	public int getContrast() {
 		return contrast;
+	}
+
+	public boolean isSendToServer() {
+		return sendToServer;
 	}
 
 	public void setBrightness(int brightness) {
@@ -42,7 +46,12 @@ public class Jimp extends Image {
 	public void setJimp() {
 		// TODO use Jackson instead of this ugly concatenation
 		String jimp = "{\"" + "contrast\" : " + contrast + ", " + "\"brightness\" : " + brightness + ","
-				+ "\"color\" : \"" + color + "\"}";
+				+ "\"color\" : \"" + color + "\"," + "\"sendToServer\" : " + sendToServer + "}";
 		this.setClientDataAttribute("jimp", jimp);
+	}
+
+	public void setSendToServer(boolean sendToServer) {
+		this.sendToServer = sendToServer;
+		setJimp();
 	}
 }

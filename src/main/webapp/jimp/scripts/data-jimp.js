@@ -22,8 +22,10 @@ function (wgt, dataValue) {
 					}
 				}
 				
-				// Send the processed image to the view model
-				binder.command('camanCalculationFinished', {data: jpegData});
+				// Send the processed image to the view model, only if needed
+				if (dataValue.sendToServer) {
+					binder.command('camanCalculationFinished', {data: jpegData});
+				}
 			});
 	});
 }

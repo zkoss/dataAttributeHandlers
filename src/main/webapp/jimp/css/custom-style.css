@@ -41,6 +41,20 @@ div.beforeWrapper {
 	border-left: 1px solid #000;
 }
 
+span.preview-warning {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 200px;
+	height: 200px;
+	line-height: 200px;
+	text-align: center;
+	font-size: 18px;
+	font-weight: bold;
+	background: grey;
+	color: white;
+}
+
 .boring-info {
 	line-height: 19px;
 	padding-left: 5px;

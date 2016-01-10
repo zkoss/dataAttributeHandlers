@@ -15,6 +15,7 @@
 			<vbox hflex="1" vflex="1">
 
 				<html sclass="boring-info">
+					
 					<![CDATA[ <h2>Author</h2>
 
 					<p>Mathieu Piette, <a
@@ -86,7 +87,9 @@
 					the source of an <code>img</code> element, so everything
 					stays at the client side. The opacity preview uses the value
 					from the ViewModel while the side-by-side preview uses
-					client-side only data.</p>
+					client-side only data. The <code>sendToServer</code> switch
+					of the ViewModel can be used to disable completely this data
+					posting.</p>
 
 					<p>The name <q>Jimp</q> mean <q><strong>J</strong>avascript
 					<strong>I</strong>mage
@@ -98,6 +101,7 @@
 					message for you: <q>meow meow, meeeooow *purrrrrrrr*</q>.
 					He's proud that he's now a member of the ZK
 					community.</p>]]>
+					
 			</html>
 
 			</vbox>
@@ -111,6 +115,7 @@
 					src="/jimp/images/cat.jpeg" color="@load(vm.color)"
 					contrast="@load(vm.contrast)" brightness="@load(vm.brightness)"
 					sclass="image" id="jimpimage" ca:data-jimp-source="cat"
+					sendToServer="@load(vm.sendToServer)"
 					style="@load(c:cat('box-shadow:0 0 50px ', vm.color))" />
 
 				<separator />
@@ -132,6 +137,10 @@
 						<colorbox id="colorPicker" width="100px" height="25px"
 							value="@bind(vm.color)" />
 					</hbox>
+					<hbox hflex="1">
+						<label value="Send to server" />
+						<checkbox checked="@bind(vm.sendToServer)" />
+					</hbox>
 					<separator />
 				</vbox>
 
@@ -151,6 +160,7 @@
 									height="200px" />
 								<image src="@load(vm.jpegData)" width="200px"
 									height="200px" style="@load(c:cat('opacity: ', vm.opacity/100))" />
+								<label sclass="preview-warning" visible="@load(!vm.sendToServer)">Unavailable</label>
 							</hbox>
 						</vbox>
 
@@ -159,7 +169,7 @@
 						<vbox align="center">
 							<label style="font-weight:bold">Side-by-side preview</label>
 							<label style="font-size:60%">
-								(processed data stays at the client side)
+								(processed data comes from the client side)
 							</label>
 							<hbox sclass="previewWidth" width="200px"
 								height="200px">

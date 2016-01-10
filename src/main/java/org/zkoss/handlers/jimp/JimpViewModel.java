@@ -14,13 +14,19 @@ public class JimpViewModel {
 	private int brightness = 3;
 	private String color = "#B000B5"; // It's funny because boobs
 	private int contrast = 1;
-	
+
 	/**
 	 * The base-64 encoded jpeg data of the processed image.
 	 */
 	private String jpegData;
 	
+	/**
+	 * Opacity of the preview image (0 = preview original, 100 = preview
+	 * modified)
+	 */
 	private int opacity = 50;
+	
+	private boolean sendToServer = true;
 
 	@Command
 	@NotifyChange("jpegData")
@@ -48,6 +54,10 @@ public class JimpViewModel {
 		return opacity;
 	}
 
+	public boolean isSendToServer() {
+		return sendToServer;
+	}
+
 	public void setBrightness(int brightness) {
 		this.brightness = brightness;
 	}
@@ -66,6 +76,10 @@ public class JimpViewModel {
 
 	public void setOpacity(int opacity) {
 		this.opacity = opacity;
+	}
+
+	public void setSendToServer(boolean sendToServer) {
+		this.sendToServer = sendToServer;
 	}
 
 }
