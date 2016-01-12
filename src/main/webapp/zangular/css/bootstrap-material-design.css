@@ -1,0 +1,49 @@
+/***
+This is a custom material design for a sample BootStrap template
+
+***/
+body {
+	padding: 0px;
+    padding-top: 50px;
+}
+.navbar-fixed-top {
+	background-color: #008db7;
+	color: #fff;
+}
+.navbar-brand {
+	padding: 5px;
+} 
+/** border layout **/
+.left-box, .top-box, .content-box {
+    color: white;
+    font-size: 1.5em;
+    width: 100%;
+}
+.content-box {
+    height: 100%;
+    background: #fff;
+}
+.left-box {
+     background-color: #F5F5F5;
+    height: 100%;
+    text-align: center;
+    border-right: 1px solid #ccc;
+}
+.top-box, .content-box {
+    text-align: center;
+    margin-left: 0;
+    margin-right: 0;
+}
+.container {
+    min-height: 100%;
+    overflow: hidden;
+}
+
+.turn-left {
+    transform: rotate(-90deg);
+}
+/****/
+.row-nopadding > div[class^="col-"]{
+	padding-left: 0px;
+	padding-right: 0px;
+}

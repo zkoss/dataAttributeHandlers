@@ -1,136 +1,168 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zk>
-    <session-config>
-            <device-type>ajax</device-type>    
-            <timeout-uri></timeout-uri>    
-    </session-config>
-    <client-config>
-        <debug-js>true</debug-js>
-    </client-config>
-    <library-property>
-        <name>org.zkoss.web.classWebResource.cache</name>
-        <value>false</value>
-    </library-property>
-    <client-config>
-        <data-handler>
-                <name>chartist-pie</name>
-            <link rel="stylesheet" href="/chartist/scripts/chartist.min.css"/>
-            <script src="/chartist/scripts/chartist.min.js"></script>
-            <script src="/chartist/scripts/matchMedia.js"></script>
-            <script src="/chartist/scripts/matchMedia.addListener.js"></script>
-                <script>
-                        function (wgt, dataValue) {
-                                var renderChart = function(value) {
-                                        wgt.$setValue('');
-                                        wgt.chart = new Chartist.Pie(wgt.$n(), {series: [parseFloat(value)], labels: [value]}, dataValue); 
-                                };
-                                wgt.setOverride("setValue", renderChart); 
-                                renderChart(wgt.getValue());
-                                wgt.listen({onAfterSize: function() {wgt.chart.update();}});
-                        }
-                </script>
-        </data-handler>
-        <data-handler>
-            <name>qrcode</name>
-            <script src="/qrcode/js/jquery.min.js"></script>
-            <script src="/qrcode/js/qrcode.js"></script>
-            <script src="/qrcode/js/qrcode.min.js"></script>
-            <script>
-                function (wgt, option) {
-                    wgt.field = option;
-                    if (wgt.getWidth()==null) {
-                        wgt.width = '256';
-                    } else {
-                        wgt.width = wgt.getWidth();
-                    }
-                    if (wgt.getHeight()==null) {
-                        wgt.height = '256';
-                    } else {
-                        wgt.height = wgt.getHeight();
-                    }      
-                    var createqrcode = function(value) {
-                        if (wgt.qrcode!=null) {
-                            wgt.qrcode.clear();
-                            wgt.qrcode.makeCode(value); 
-                        } else {
-                            wgt.qrcode = new QRCode(wgt.$n(), {
-                                                text : value,
-                                                width : wgt.width,
-                                                height : wgt.height});
-                        }
-                    }
-                    wgt.setOverride('set'+ option.charAt(0).toUpperCase() + option.slice(1), createqrcode);
-                    createqrcode(wgt.get(option));
-                }
-            </script>
-        </data-handler>
-        <data-handler>
-            <name>qrcode-href</name>
-            <script src="/qrcode/js/jquery.min.js"></script>
-            <script src="/qrcode/js/qrcode.js"></script>
-            <script src="/qrcode/js/qrcode.min.js"></script>
-            <script>
-                function (wgt, option) {
-                    if (wgt.getWidth()==null) {
-                        wgt.width = '256';
-                    } else {
-                        wgt.width = wgt.getWidth();
-                    }
-                    if (wgt.getHeight()==null) {
-                        wgt.height = '256';
-                    } else {
-                        wgt.height = wgt.getHeight();
-                    }      
-                    var createqrcode = function(value) {
-                        wgt.$setHref(value);
-                        if (wgt.qrcode!=null) {
-                            wgt.qrcode.clear();
-                            wgt.qrcode.makeCode(value); 
-                        } else {
-                            wgt.qrcode = new QRCode(wgt.$n(), {
-                                                text : value,
-                                                width : wgt.width,
-                                                height : wgt.height});
-                        }
-                    }
-                    wgt.setOverride("setHref", createqrcode);
-                    createqrcode(wgt.getHref());
-                }
-            </script>
-        </data-handler>
-        <data-handler>
-            <name>qrcode-value</name>
-            <script src="/qrcode/js/jquery.min.js"></script>
-            <script src="/qrcode/js/qrcode.js"></script>
-            <script src="/qrcode/js/qrcode.min.js"></script>
-            <script>
-                function (wgt, option) {
-                    if (wgt.getWidth()==null) {
-                        wgt.width = '256';
-                    } else {
-                        wgt.width = wgt.getWidth();
-                    }
-                    if (wgt.getHeight()==null) {
-                        wgt.height = '256';
-                    } else {
-                        wgt.height = wgt.getHeight();
-                    }  
-                    var createqrcode = function(value) {
-                        wgt.$setValue('');
-                        if (wgt.qrcode!=null) {
-                            wgt.qrcode.clear();
-                            wgt.qrcode.makeCode(value); 
-                        } else {
-                            wgt.qrcode = new QRCode(wgt.$n(), {
-                                                text : value,
-                                                width : wgt.width,
-                                                height : wgt.height});
-                        }
-                    }
-                    wgt.setOverride("setValue", createqrcode);
-                    createqrcode(wgt.get(option));
-                }
-            </script>
-        </data-handler>
-    </client-config>
+	<session-config>
+		<device-type>ajax</device-type>
+		<timeout-uri></timeout-uri>
+	</session-config>
+	<client-config>
+		<debug-js>true</debug-js>
+	</client-config>
+	<library-property>
+		<name>org.zkoss.web.classWebResource.cache</name>
+		<value>false</value>
+	</library-property>
+	<client-config>
+		<data-handler>
+			<name>chartist-pie</name>
+			<link rel="stylesheet" href="/chartist/scripts/chartist.min.css" />
+			<script src="/chartist/scripts/chartist.min.js"></script>
+			<script src="/chartist/scripts/matchMedia.js"></script>
+			<script src="/chartist/scripts/matchMedia.addListener.js"></script>
+			<script>
+				function (wgt, dataValue) {
+				var renderChart = function(value)
+				{
+				wgt.$setValue('');
+				wgt.chart = new Chartist.Pie(wgt.$n(), {series:
+				[parseFloat(value)], labels:
+				[value]}, dataValue);
+				};
+				wgt.setOverride("setValue", renderChart);
+				renderChart(wgt.getValue());
+				wgt.listen({onAfterSize: function()
+				{wgt.chart.update();}});
+				}
+			</script>
+		</data-handler>
+		<data-handler>
+			<name>qrcode</name>
+			<script src="/qrcode/js/jquery.min.js"></script>
+			<script src="/qrcode/js/qrcode.js"></script>
+			<script src="/qrcode/js/qrcode.min.js"></script>
+			<script>
+				function (wgt, option) {
+				wgt.field = option;
+				if
+				(wgt.getWidth()==null) {
+				wgt.width = '256';
+				} else {
+				wgt.width =
+				wgt.getWidth();
+				}
+				if (wgt.getHeight()==null) {
+				wgt.height = '256';
+				}
+				else {
+				wgt.height = wgt.getHeight();
+				}
+				var createqrcode =
+				function(value) {
+				if (wgt.qrcode!=null) {
+				wgt.qrcode.clear();
+				wgt.qrcode.makeCode(value);
+				} else {
+				wgt.qrcode = new QRCode(wgt.$n(),
+				{
+				text : value,
+				width : wgt.width,
+				height : wgt.height});
+				}
+				}
+				wgt.setOverride('set'+ option.charAt(0).toUpperCase() +
+				option.slice(1), createqrcode);
+				createqrcode(wgt.get(option));
+				}
+			</script>
+		</data-handler>
+		<data-handler>
+			<name>qrcode-href</name>
+			<script src="/qrcode/js/jquery.min.js"></script>
+			<script src="/qrcode/js/qrcode.js"></script>
+			<script src="/qrcode/js/qrcode.min.js"></script>
+			<script>
+				function (wgt, option) {
+				if (wgt.getWidth()==null) {
+				wgt.width
+				= '256';
+				} else {
+				wgt.width = wgt.getWidth();
+				}
+				if
+				(wgt.getHeight()==null) {
+				wgt.height = '256';
+				} else {
+				wgt.height =
+				wgt.getHeight();
+				}
+				var createqrcode = function(value) {
+				wgt.$setHref(value);
+				if (wgt.qrcode!=null) {
+				wgt.qrcode.clear();
+				wgt.qrcode.makeCode(value);
+				} else {
+				wgt.qrcode = new QRCode(wgt.$n(),
+				{
+				text : value,
+				width : wgt.width,
+				height : wgt.height});
+				}
+				}
+				wgt.setOverride("setHref", createqrcode);
+				createqrcode(wgt.getHref());
+				}
+			</script>
+		</data-handler>
+		<data-handler>
+			<name>qrcode-value</name>
+			<script src="/qrcode/js/jquery.min.js"></script>
+			<script src="/qrcode/js/qrcode.js"></script>
+			<script src="/qrcode/js/qrcode.min.js"></script>
+			<script>
+				function (wgt, option) {
+				if (wgt.getWidth()==null) {
+				wgt.width
+				= '256';
+				} else {
+				wgt.width = wgt.getWidth();
+				}
+				if
+				(wgt.getHeight()==null) {
+				wgt.height = '256';
+				} else {
+				wgt.height =
+				wgt.getHeight();
+				}
+				var createqrcode = function(value) {
+				wgt.$setValue('');
+				if (wgt.qrcode!=null) {
+				wgt.qrcode.clear();
+				wgt.qrcode.makeCode(value);
+				} else {
+				wgt.qrcode = new QRCode(wgt.$n(),
+				{
+				text : value,
+				width : wgt.width,
+				height : wgt.height});
+				}
+				}
+				wgt.setOverride("setValue", createqrcode);
+				createqrcode(wgt.get(option));
+				}
+			</script>
+		</data-handler>
+		<data-handler>
+			<name>mwlcalendar</name>
+			<script src="/zangular/js/angular.1.4.8.js"></script>
+			<script src="/zangular/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+			<script
+				src="/zangular/angular-bootstrap-calendar/ui-bootstrap-tpls-0.14.3.min.js"></script>
+			<script src="/zangular/angular-bootstrap-calendar/interact.min.js"></script>
+			<script src="/zangular/angular-bootstrap-calendar/moment.min.js"></script>
+			<script
+				src="/zangular/angular-bootstrap-calendar/angular-bootstrap-calendar-tpls.js"></script>
+			<link rel="stylesheet"
+				href="/zangular/angular-bootstrap-calendar/angular-bootstrap-calendar.min.css" />
+			<script src="/zangular/angular-bootstrap-calendar/data-mwlcalendar.js"></script>
+		</data-handler>
+	</client-config>
 </zk>
