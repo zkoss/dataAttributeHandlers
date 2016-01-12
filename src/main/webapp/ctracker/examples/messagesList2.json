@@ -1,0 +1,66 @@
+{
+  "messages": [
+    {
+      "id": 100,
+      "time": "Sun Dec 27 19:44:54 CET 2015",
+      "from": "Jacob",
+      "text": "What's you r next lesson?"
+    },
+    {
+      "id": 101,
+      "time": "Sun Dec 27 19:45:29 CET 2015",
+      "from": "Elena",
+      "text": "It's Music. I don't like Music."
+    },
+    {
+      "id": 102,
+      "time": "Sun Dec 27 19:46:05 CET 2015",
+      "from": "David",
+      "text": "What? I love it! Do you like Maths?"
+    },
+    {
+      "id": 103,
+      "time": "Sun Dec 27 19:47:04 CET 2015",
+      "from": "Elena",
+      "text": "Yes, I do. It's easy. What about you Jacob, do you like it?"
+    },
+    {
+      "id": 104,
+      "time": "Sun Dec 27 19:48:00 CET 2015",
+      "from": "Jacob",
+      "text": "No, I don't! I hate Maths! It's really difficult. Our Maths teacher's very strict."
+    },
+    {
+      "id": 105,
+      "time": "Sun Dec 27 19:48:33 CET 2015",
+      "from": "David",
+      "text": "Who's your teacher?"
+    },
+    {
+      "id": 106,
+      "from": "Jacob",
+      "text": "Mrs. Anna. Does she teach you?"
+    },
+    {
+      "id": 107,
+      "time": "Sun Dec 27 19:50:53 CET 2015",
+      "from": "David",
+      "text": "No she doesn't. We have Mr. Black. I like him very much."
+    }
+  ],
+  "users": [
+    {
+      "id": "David",
+      "image": "images/user_male1.png"
+    },
+    {
+      "id": "Elena",
+      "image": "images/user_female.png"
+    },
+    {
+      "id": "Jacob",
+      "image": "images/user_male2.png"
+    }
+  ],
+  "selectedIndex": 0
+}
