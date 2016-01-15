@@ -1,4 +1,4 @@
-package org.zkoss.handlers.mthkhaled.zangular.vm;
+package org.zkoss.handlers.odaper.zangular.vm;
 
 import java.util.Date;
 
@@ -12,17 +12,17 @@ import org.zkoss.json.JSONArray;
 import org.zkoss.json.JSONObject;
 
 /**
- * ZK Calendar View Model which handles the events between the angular bootsrap
+ * ZK Calendar View Model which handles the events between the angular bootstrap
  * calendar and server ZK view model
  * 
- * @author Khaled Mathlouthi
+ * @author Odaper: Khaled Mathlouthi
  * @version 1.0
- * @category Namespace: Client Attribute
+ * @category ZK Namespace: Client Attribute
  * **/
 @NotifyCommands({ @NotifyCommand(value = "mwlcalendar$initEvent", onChange = "_vm_.eventList"), })
 @ToClientCommand({ "mwlcalendar$initEvent" })
 @ToServerCommand({ "mwlcalendar$getEvents" })
-public class ZkMwlCalendarVM {
+public class CalendarVM {
 
 	private String test = "This is just data inserted in a label.";
 	private JSONArray eventList;

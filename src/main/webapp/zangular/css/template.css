@@ -10,6 +10,16 @@ body {
 	background-color: #008db7;
 	color: #fff;
 }
+.navbar-fixed-left {
+ 	position: fixed;
+ 	left: 0px;
+ 	top: 50px;	
+ 	width: 200px;
+}
+.container-body {
+	margin-left: 200px; 
+	height: 100%;
+}
 .navbar-brand {
 	padding: 5px;
 } 

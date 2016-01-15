@@ -1,8 +1,18 @@
-package org.zkoss.handlers.mthkhaled.zangular.components;
+package org.zkoss.handlers.odaper.zangular.ui;
 
 import org.zkoss.zul.Div;
 
-public class ZkMwlCalendar extends Div {
+/**
+ * Custom ZK Div Component to initialize the angular calendar from server side.
+ * Few parameters are handled here just for the demo, full parameters will be
+ * supported soon when this project will be published for the ZK Community in
+ * GitHub
+ * 
+ * @author Odaper: Khaled Mathlouthi
+ * @version 1.0
+ * @category ZK Namespace: Client Attribute
+ * **/
+public class CalendarUI extends Div {
 
 	private static final String MWLCALENDAR = "data-mwlcalendar";
 	private static final String CALENDAR_TITLE = "\"calendarTitle\":";
@@ -15,12 +25,12 @@ public class ZkMwlCalendar extends Div {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	public ZkMwlCalendar() {
+	public CalendarUI() {
 		final StringBuilder str = new StringBuilder(CALENDAR_VIEW);
-		str.append("\""+getCalendarView()+"\"");
+		str.append("\"" + getCalendarView() + "\"");
 		str.append(",");
 		str.append(CALENDAR_TITLE);
-		str.append("\""+getCalendarTitle()+"\"");
+		str.append("\"" + getCalendarTitle() + "\"");
 		setClientAttribute(MWLCALENDAR, "{" + str.toString() + "}");
 	}
 

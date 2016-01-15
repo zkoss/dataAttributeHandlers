@@ -152,17 +152,19 @@
 		</data-handler>
 		<data-handler>
 			<name>mwlcalendar</name>
-			<script src="/zangular/js/angular.1.4.8.js"></script>
-			<script src="/zangular/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+			<script src="/zangular/libs/angular1.4.8/angular.min.js"></script>
+			<script src="/zangular/libs/bootstrap-3.3.6/js/bootstrap.min.js"></script>
 			<script
-				src="/zangular/angular-bootstrap-calendar/ui-bootstrap-tpls-0.14.3.min.js"></script>
-			<script src="/zangular/angular-bootstrap-calendar/interact.min.js"></script>
-			<script src="/zangular/angular-bootstrap-calendar/moment.min.js"></script>
+				src="/zangular/libs/angular-bootstrap-calendar/ui-bootstrap-tpls-0.14.3.min.js"></script>
+			<script src="/zangular/libs/angular-bootstrap-calendar/interact.min.js"></script>
+			<script src="/zangular/libs/angular-bootstrap-calendar/moment.min.js"></script>
 			<script
-				src="/zangular/angular-bootstrap-calendar/angular-bootstrap-calendar-tpls.js"></script>
+				src="/zangular/libs/angular-bootstrap-calendar/angular-bootstrap-calendar-tpls.js"></script>
 			<link rel="stylesheet"
-				href="/zangular/angular-bootstrap-calendar/angular-bootstrap-calendar.min.css" />
-			<script src="/zangular/angular-bootstrap-calendar/data-mwlcalendar.js"></script>
+				href="/zangular/libs/angular-bootstrap-calendar/angular-bootstrap-calendar.min.css" />
+			<link rel="stylesheet"
+				href="/zangular/libs/bootstrap-3.3.6/css/bootstrap.min.css" />
+			<script src="/zangular/js/data-mwlcalendar.js"></script>
 		</data-handler>
 	</client-config>
 </zk>
