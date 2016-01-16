@@ -6,36 +6,62 @@
 		<?link href="css/template.css" rel="stylesheet"?>
 	</head>
 	<body>
-		<nav class="navbar navbar-fixed-top">
+		<nav class="navbar navbar-inverse navbar-fixed-top">
 			<div class="container-fluid">
 				<div class="navbar-header">
-					<img class="navbar-brand" src="images/zklogo.png"
-						style="height:50px">
-					</img>
+					<button type="button" class="navbar-toggle"
+						data-toggle="collapse" data-target="#myNavbar">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="#">
+						<img src="css/images/zklogo.png">
+						</img>
+					</a>
 				</div>
-
-				<div id="navbar" class="navbar-collapse collapse">
-					<div class="nav navbar-nav navbar-right">
-						Zker Khaled Mathlouthi
-					</div>
+				<div class="collapse navbar-collapse " id="myNavbar">
+					<ul class="nav navbar-collapse nav-pills test2"
+						style="visibility: visible;">
+						<li class="">
+							<a href="#" data-toggle="tab"
+								aria-expanded="false">
+								Home
+							</a>
+						</li>
+						<li class="active">
+							<a href="#" data-toggle="tab"
+								aria-expanded="true">
+								Menu 1
+							</a>
+						</li>
+						<li class="">
+							<a href="#" data-toggle="tab"
+								aria-expanded="false">
+								Menu 2
+							</a>
+						</li>
+						<li>
+							<a href="#" data-toggle="tab">Menu 3</a>
+						</li>
+					</ul>
+					<ul class="nav navbar-nav navbar-right">
+						<li>
+							<a href="#">
+								<span
+									class="glyphicon glyphicon-user">
+								</span>
+								Zker Khaled Mathlouthi
+							</a>
+						</li>
+					</ul>
 				</div>
 			</div>
 		</nav>
-		<div class="container-fluid" style="height: 100%">
-			<div class="row row-nopadding" style="height: 100%">
-				<div class="col-md-2 navbar-fixed-left" style="height: 100%">
-					<div class="left-box">
-						   <u:button label="Home" onClick='inner.src = null; inner.src = "index1.zul"'/>
-						   <u:button label="My Dashboard" onClick='inner.src = null; inner.src = "index1.zul"'/>
-						   <u:button label="My Tasks" onClick='inner.src = null; inner.src = "index3.zul"'/>
-					</div>
-				</div>
-				<div class="col-md-10 container-body container-fluid">
-					<u:include id="inner" mode="defer" src="index3.zul" />
-				</div>
 
-			</div>
-
+		<div class="container">
+			<h3>Collapsible Navbar</h3>
+			<u:include id="inner" mode="defer" src="index3.zul" />
 		</div>
 
 

@@ -10,6 +10,9 @@ body {
 	background-color: #008db7;
 	color: #fff;
 }
+.navbar-fixed-top img {
+	height: 40px;
+}
 .navbar-fixed-left {
  	position: fixed;
  	left: 0px;
