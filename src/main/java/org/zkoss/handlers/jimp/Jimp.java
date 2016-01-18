@@ -1,5 +1,6 @@
 package org.zkoss.handlers.jimp;
 
+import org.zkoss.json.JSONObject;
 import org.zkoss.zul.Image;
 
 /**
@@ -44,10 +45,14 @@ public class Jimp extends Image {
 	}
 
 	public void setJimp() {
-		// TODO use Jackson instead of this ugly concatenation
-		String jimp = "{\"" + "contrast\" : " + contrast + ", " + "\"brightness\" : " + brightness + ","
-				+ "\"color\" : \"" + color + "\"," + "\"sendToServer\" : " + sendToServer + "}";
-		this.setClientDataAttribute("jimp", jimp);
+		JSONObject json = new JSONObject();
+		
+		json.put("contrast", contrast);
+		json.put("brightness", brightness);
+		json.put("color", color);
+		json.put("sendToServer", sendToServer);
+
+		this.setClientDataAttribute("jimp", json.toJSONString());
 	}
 
 	public void setSendToServer(boolean sendToServer) {

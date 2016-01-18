@@ -160,7 +160,7 @@
 									height="200px" />
 								<image src="@load(vm.jpegData)" width="200px"
 									height="200px" style="@load(c:cat('opacity: ', vm.opacity/100))" />
-								<label sclass="preview-warning" visible="@load(!vm.sendToServer)">Unavailable</label>
+								<label sclass="preview-warning" visible="@load(!vm.sendToServer)">🚫</label>
 							</hbox>
 						</vbox>
 
