@@ -2,6 +2,7 @@ package org.zkoss.handlers.odaper.zangular.vm;
 
 import java.util.Date;
 
+import org.zkoss.bind.annotation.BindingParam;
 import org.zkoss.bind.annotation.Command;
 import org.zkoss.bind.annotation.NotifyChange;
 import org.zkoss.bind.annotation.NotifyCommand;
@@ -21,7 +22,7 @@ import org.zkoss.json.JSONObject;
  * **/
 @NotifyCommands({ @NotifyCommand(value = "mwlcalendar$initEvent", onChange = "_vm_.eventList"), })
 @ToClientCommand({ "mwlcalendar$initEvent" })
-@ToServerCommand({ "mwlcalendar$getEvents" })
+@ToServerCommand({ "mwlcalendar$getEvents", "mwlcalendar$updateEvents" })
 public class CalendarVM {
 
 	private String test = "This is just data inserted in a label.";
@@ -33,6 +34,11 @@ public class CalendarVM {
 		this.eventList = new JSONArray();
 		eventList.add(getEvent("Event test 1", new Date(), new Date()));
 		eventList.add(getEvent("Event test 2", new Date(), new Date()));
+	}
+
+	@Command("mwlcalendar$updateEvents")
+	public void updateEvents(@BindingParam("events") Object events) {
+		System.out.println("Data to update:" + events);
 	}
 
 	private JSONObject getEvent(final String title, final Date startDate,

@@ -1,9 +1,9 @@
 function (wgt, option) {
-	
 	  var self = this;
 	  if (self.command) {
 		  // get the events from the view model
 		  self.command("$getEvents");
+		  
 	  }
 	  // MVVM only
 	  if (self.after) {
@@ -15,7 +15,12 @@ function (wgt, option) {
 	    			angular.element("#demo").scope().vm.events.push({title : jsonEvent.title, type : jsonEvent.type, startsAt : new Date(jsonEvent.startsAt),endsAt : new Date(jsonEvent.endsAt),draggable : true,resizable : true})
 	    	    }
 	        angular.element("#demo").scope().$apply();
+		    // listen to the data when is changed using the angular watcher
+		    angular.element("#demo").scope().$watch('vm.events', function(newVal, oldVal){
+		    	self.command("$updateEvents", {events: angular.element("#demo").scope().vm.events});
+			});
+				
 	      }
 	    });
-	    }
+	  }
 }
