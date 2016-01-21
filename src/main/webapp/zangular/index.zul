@@ -19,9 +19,10 @@
 						<img src="css/images/zklogo.png">
 						</img>
 					</a>
+					
 				</div>
-				<div class="collapse navbar-collapse " id="myNavbar">
-					<ul class="nav navbar-collapse nav-pills test2"
+				<div class="collapse navbar-collapse navbar-left" id="myNavbar">
+					<ul class="nav nav-pills "
 						style="visibility: visible;">
 						<li class="">
 							<a href="#" data-toggle="tab"
@@ -45,7 +46,10 @@
 							<a href="#" data-toggle="tab">Menu 3</a>
 						</li>
 					</ul>
-					<ul class="nav navbar-nav navbar-right">
+					
+				</div>
+				<div class="container-fluid">
+				<ul class="nav navbar-nav navbar-right">
 						<li>
 							<a href="#">
 								<span

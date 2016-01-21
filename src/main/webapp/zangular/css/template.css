@@ -60,3 +60,33 @@ body {
 	padding-left: 0px;
 	padding-right: 0px;
 }
+.nav-pills {
+	height: 50px;
+}
+.nav-pills li {
+	height: 50px;
+}
+.nav-pills li a {
+	height: 100%;
+	background: rgba(0, 141, 183, 0.53);
+	border-radius: 0px;
+	padding: 0px 10px;
+	line-height: 50px;
+}
+.nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover {
+	background: #1A237E;
+}
+.nav-pills>li>a {
+	background: #e1e1e1;
+}
+.navbar-inverse {
+	border: 0px;
+}
+.nav-pills>li+li {
+	margin: 0px;
+	margin-right: 1px; 
+}
+#myNavbar {
+	margin-left: 100px;
+}
+
