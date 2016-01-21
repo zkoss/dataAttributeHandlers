@@ -1,6 +1,7 @@
 package org.zkoss.handlers.odaper.zangular.vm;
 
-import java.util.Date;
+import java.util.ArrayList;
+import java.util.Map;
 
 import org.zkoss.bind.annotation.BindingParam;
 import org.zkoss.bind.annotation.Command;
@@ -9,12 +10,12 @@ import org.zkoss.bind.annotation.NotifyCommand;
 import org.zkoss.bind.annotation.NotifyCommands;
 import org.zkoss.bind.annotation.ToClientCommand;
 import org.zkoss.bind.annotation.ToServerCommand;
-import org.zkoss.json.JSONArray;
-import org.zkoss.json.JSONObject;
+import org.zkoss.handlers.odaper.zangular.services.CalendarService;
 
 /**
- * ZK Calendar View Model which handles the events between the angular bootstrap
- * calendar and server ZK view model
+ * ZK Calendar View Model which handles the events data changes between the
+ * angular calendar model and server ZK view model. All the events are stored in
+ * the user's session
  * 
  * @author Odaper: Khaled Mathlouthi
  * @version 1.0
@@ -26,32 +27,18 @@ import org.zkoss.json.JSONObject;
 public class CalendarVM {
 
 	private String test = "This is just data inserted in a label.";
-	private JSONArray eventList;
+	private ArrayList<Map<String, Object>> eventList;
 
 	@NotifyChange("eventList")
 	@Command("mwlcalendar$getEvents")
 	public void getEvents() {
-		this.eventList = new JSONArray();
-		eventList.add(getEvent("Event test 1", new Date(), new Date()));
-		eventList.add(getEvent("Event test 2", new Date(), new Date()));
+		this.eventList = CalendarService.get().getAllEvents();
 	}
 
 	@Command("mwlcalendar$updateEvents")
 	public void updateEvents(@BindingParam("events") Object events) {
-		System.out.println("Data to update:" + events);
-	}
-
-	private JSONObject getEvent(final String title, final Date startDate,
-			final Date endDate) {
-		JSONObject obj1 = new JSONObject();
-		obj1.put("title", title);
-		obj1.put("type", "warning");
-		obj1.put("startsAt", startDate.getTime());
-		obj1.put("endsAt", endDate.getTime());
-		obj1.put("draggable", "true");
-		obj1.put("editable", "false");
-		obj1.put("deletable", "false");
-		return obj1;
+		CalendarService.get()
+				.updateAll((ArrayList<Map<String, Object>>) events);
 	}
 
 	public String getTest() {
@@ -62,11 +49,11 @@ public class CalendarVM {
 		this.test = test;
 	}
 
-	public JSONArray getEventList() {
+	public ArrayList<Map<String, Object>> getEventList() {
 		return eventList;
 	}
 
-	public void setEventList(JSONArray eventList) {
+	public void setEventList(ArrayList<Map<String, Object>> eventList) {
 		this.eventList = eventList;
 	}
 
