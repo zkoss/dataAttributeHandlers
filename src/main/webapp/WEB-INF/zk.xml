@@ -164,6 +164,10 @@
 				href="/zangular/libs/angular-bootstrap-calendar/angular-bootstrap-calendar.min.css" />
 			<link rel="stylesheet"
 				href="/zangular/libs/bootstrap-3.3.6/css/bootstrap.min.css" />
+			<script src="/zangular/libs/chartsjs/Chart.min.js"></script>
+			<script src="/zangular/libs/angular-charts/angular-chart.min.js"></script>
+			<link rel="stylesheet"
+				href="/zangular/libs/angular-charts/angular-chart.min.css" />
 			<script src="/zangular/js/data-mwlcalendar.js"></script>
 		</data-handler>
 	</client-config>

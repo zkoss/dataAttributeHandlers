@@ -70,3 +70,4 @@ angular
 		.controller(
 				'MainCtrl',
 				MainCtrl);
+

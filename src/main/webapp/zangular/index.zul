@@ -61,7 +61,8 @@
 
 		<div class="container">
 			<h3>Collapsible Navbar</h3>
-			<u:include id="inner" mode="defer" src="index3.zul" />
+			<u:include id="inner" mode="defer" src="index2.zul" />
+			<u:include id="charts" mode="defer" src="index3.zul" />
 		</div>
 
 
