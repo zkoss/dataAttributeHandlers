@@ -5,8 +5,9 @@
 		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"?>
 		<?link href="css/template.css" rel="stylesheet"?>
 	</head>
-	<body>
-		<nav class="navbar navbar-inverse navbar-fixed-top">
+	<body id="home">
+		<nav id="header"
+			class="navbar navbar-inverse navbar-fixed-top">
 			<div class="container-fluid">
 				<div class="navbar-header">
 					<button type="button" class="navbar-toggle"
@@ -15,43 +16,36 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="#">
-						<img src="css/images/zklogo.png">
-						</img>
-					</a>
-					
 				</div>
-				<div class="collapse navbar-collapse navbar-left" id="myNavbar">
+				<div class="collapse navbar-collapse navbar-left"
+					id="myNavbar">
 					<ul class="nav nav-pills "
 						style="visibility: visible;">
-						<li class="">
-							<a href="#" data-toggle="tab"
-								aria-expanded="false">
+						<li class="active">
+							<a href="#home" data-toggle="tab"
+								aria-expanded="true">
 								Home
 							</a>
 						</li>
-						<li class="active">
-							<a href="#" data-toggle="tab"
-								aria-expanded="true">
-								Menu 1
+						<li>
+							<a href="#page-calendar" data-toggle="tab"
+								aria-expanded="false">
+								My Events
 							</a>
 						</li>
 						<li class="">
-							<a href="#" data-toggle="tab"
+							<a href="#page-charts" data-toggle="tab"
 								aria-expanded="false">
-								Menu 2
+								My Dashboard
 							</a>
 						</li>
-						<li>
-							<a href="#" data-toggle="tab">Menu 3</a>
-						</li>
 					</ul>
-					
+
 				</div>
 				<div class="container-fluid">
-				<ul class="nav navbar-nav navbar-right">
+					<ul class="nav navbar-nav navbar-right">
 						<li>
-							<a href="#">
+							<a href="#" id="author">
 								<span
 									class="glyphicon glyphicon-user">
 								</span>
@@ -64,9 +58,17 @@
 		</nav>
 
 		<div class="container">
-			<h3>Collapsible Navbar</h3>
-			<u:include id="inner" mode="defer" src="index2.zul" />
-			<u:include id="charts" mode="defer" src="index3.zul" />
+			<div class="col-xs-12 page">
+				<h2>ZK with Angular</h2>
+			</div>
+			<div id="page-calendar" class="col-xs-12 page">
+				<u:include id="page-calendar" mode="defer"
+					src="index3.zul" />
+			</div>
+			<div id="page-charts" class="col-xs-12 page">
+				<u:include id="page-charts" mode="defer"
+					src="index2.zul" />
+			</div>
 		</div>
 
 

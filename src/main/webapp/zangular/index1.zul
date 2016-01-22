@@ -1,6 +1,0 @@
-<div xmlns:ng="http://angularjs.org" xmlns="native" xmlns:u="zul"
-	xmlns:ca="client/attribute">
-	
-	<h1>Welcome to ZK Challenge</h1>
-
-</div>
