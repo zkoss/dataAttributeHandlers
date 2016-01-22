@@ -26,7 +26,6 @@ import org.zkoss.handlers.odaper.zangular.services.CalendarService;
 @ToServerCommand({ "mwlcalendar$getEvents", "mwlcalendar$updateEvents" })
 public class CalendarVM {
 
-	private String test = "This is just data inserted in a label.";
 	private ArrayList<Map<String, Object>> eventList;
 
 	@NotifyChange("eventList")
@@ -39,14 +38,6 @@ public class CalendarVM {
 	public void updateEvents(@BindingParam("events") Object events) {
 		CalendarService.get()
 				.updateAll((ArrayList<Map<String, Object>>) events);
-	}
-
-	public String getTest() {
-		return test;
-	}
-
-	public void setTest(String test) {
-		this.test = test;
 	}
 
 	public ArrayList<Map<String, Object>> getEventList() {

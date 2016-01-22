@@ -170,5 +170,13 @@
 				href="/zangular/libs/angular-charts/angular-chart.min.css" />
 			<script src="/zangular/js/data-mwlcalendar.js"></script>
 		</data-handler>
+		<data-handler>
+			<name>charts</name>
+			<script src="/zangular/libs/chartsjs/Chart.min.js"></script>
+			<script src="/zangular/libs/angular-charts/angular-chart.min.js"></script>
+			<link rel="stylesheet"
+				href="/zangular/libs/angular-charts/angular-chart.min.css" />
+			<script src="/zangular/js/data-charts.js"></script>
+		</data-handler>
 	</client-config>
 </zk>

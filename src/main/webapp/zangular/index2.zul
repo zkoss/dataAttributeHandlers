@@ -1,17 +1,38 @@
 <div xmlns:ng="http://angularjs.org" xmlns="native" xmlns:u="zul"
 	xmlns:ca="client/attribute">
 	<div id="angular-charts">
-		 <div class="col-lg-6 col-sm-12" id="line-chart" ng-controller="LineCtrl">
-          <div class="panel panel-default">
-            <div class="panel-heading">Line Chart</div>
-            <div class="panel-body">
-              <canvas id="line" class="chart chart-line" chart-data="data" chart-labels="labels" chart-legend="true"
-                      chart-click="onClick" chart-hover="onHover" chart-series="series"></canvas>
-            </div>
-          </div>
-        </div>
-       </div> 
-       	<script type="text/javascript"
+		<u:div id="zkChart"
+			viewModel="@id('vs') @init('org.zkoss.handlers.odaper.zangular.vm.ChartVM')"
+			ca:data-charts="">
+			<div class="col-md-6 col-xs-12" id="line-chart"
+				ng-controller="LineCtrl">
+				<div class="panel panel-default">
+					<div class="panel-heading">Line Chart</div>
+					<div class="panel-body">
+						<canvas id="line" class="chart chart-line"
+							chart-data="data" chart-labels="labels" chart-legend="true"
+							chart-click="onClick" chart-hover="onHover"
+							chart-series="series">
+						</canvas>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-6 col-xs-12" id="bar-chart"
+				ng-controller="BarCtrl">
+				<div class="panel panel-default">
+					<div class="panel-heading">Bar Chart</div>
+					<div class="panel-body">
+						<canvas id="bar" class="chart chart-bar"
+							chart-data="data" chart-labels="labels" chart-legend="true"
+							chart-click="onClick" chart-hover="onHover"
+							chart-series="series">
+						</canvas>
+					</div>
+				</div>
+			</div>
+		</u:div>
+	</div>
+	<script type="text/javascript"
 		src="/data-attribute-handlers/zangular/js/demo-charts.js">
 	</script>
 </div>
