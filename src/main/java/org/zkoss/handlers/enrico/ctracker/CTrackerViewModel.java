@@ -20,13 +20,15 @@ import org.zkoss.zk.ui.Executions;
  * @author Enrico Tedeschini (etedeschini@gmail.com)
  * 
  */
+ 
+//@ToServerCommand Specifies that the client-side will invoke this view model.  
 @ToServerCommand({"zkddslick$onSelect", "zkctracker$onClickUser", "zkctracker$onSelectMessage", "zkctracker$onDeleteMessage", "zkctracker$onMoveMessage"})
 public class CTrackerViewModel {
 
 	private JSONObject 	usersDataModel;
 	private JSONObject 	messagesDataModel;
-	private JSONObject	user  	    = null;
-	private String 		msg		 	= null;
+	private JSONObject	user  	= null;
+	private String 		msg	= null;
 	
 	/** Constructor */
 	public CTrackerViewModel() {
@@ -59,18 +61,16 @@ public class CTrackerViewModel {
 	@Command
 	public void messageTyping(@BindingParam("msg") String msg) {
 		this.msg = msg;
-    }
+    	}
     
 	/**
-	 * Event from client side to notify when
-	 * a user has been selected on custom drop down zkddslick. 
-	 * 
+	 * Event from client side to notify when a user has been selected on custom drop down zkddslick. 
 	 * @param id: zk component ID 
 	 * @param index: user index selected 
 	 */
 	@NotifyChange({"enableAdd"})
 	@Command("zkddslick$onSelect")
-    public void onSelectUser(@BindingParam("id") String id, @BindingParam("index") Integer index) {
+    	public void onSelectUser(@BindingParam("id") String id, @BindingParam("index") Integer index) {
        
 		// get list of users
 		JSONArray  users 	= (JSONArray)usersDataModel.get("data");
@@ -78,14 +78,14 @@ public class CTrackerViewModel {
 		// get User by index 
 		this.user = (JSONObject)users.get(index);
 
-    	// print to console for debugging
-    	System.out.println("DdSlick event - user with index=" + index + " has been selected");
-    }
+    		// print to console for debugging
+    		System.out.println("DdSlick event - user with index=" + index + " has been selected");
+    	}
 
 	/**
 	 * Method to add a message on Chat Tracker (zkctracker)
-	 * About data structure required by 
-	 * Chat Tracker see /examples/messagesList.json file
+	 * About data structure required by Chat Tracker 
+	 * see /examples/messagesList1.json or /examples/messagesList2.json file
 	 */
 	@NotifyChange({"messages"})
 	@Command
@@ -93,10 +93,10 @@ public class CTrackerViewModel {
 		
 		// create new message
 		JSONObject message = new JSONObject();
-		message.put("id",			System.currentTimeMillis());  	// unique id
-		message.put("time",			new Date().toString());		  	// never used on client or server side 
-		message.put("from", 		this.user.get("text"));					  	// user name
-		message.put("text", 		msg);							// text of message
+		message.put("id",	System.currentTimeMillis());  	// unique id
+		message.put("time",	new Date().toString());		// never used on client or server side 
+		message.put("from", 	this.user.get("text"));		// user name
+		message.put("text", 	msg);				// text of message
 		
 		// get queue of messages
 		JSONArray messages = (JSONArray)messagesDataModel.get("messages");
@@ -153,64 +153,56 @@ public class CTrackerViewModel {
 	}
 
 	/** 
-	 * Event from client side to notify when
-	 * a user has been selected on Chat Tracker (zkctracker) 
+	 * Event from client side to notify when a user has been selected on Chat Tracker (zkctracker) 
 	 * @param id: zk component ID 
 	 * @param name: user name
 	 */
 	@Command("zkctracker$onClickUser")
-    public void onClickUser(@BindingParam("id") String id, @BindingParam("name") String name) {
+    	public void onClickUser(@BindingParam("id") String id, @BindingParam("name") String name) {
        
-    	System.out.println("Chat Tracker event - user with name=" + name + " has been selected");
-    }
+    		System.out.println("Chat Tracker event - user with name=" + name + " has been selected");
+    	}
 	
 	/** 
-	 * Event from client side to notify when
-	 * a message has been selected on Chat Tracker (zkctracker)
+	 * Event from client side to notify when a message has been selected on Chat Tracker (zkctracker)
 	 * @param id: zk component ID 
 	 * @param messageId: unique message id
 	 */
 	@Command("zkctracker$onSelectMessage")
-    public void onSelectedMessage(@BindingParam("id") String id, @BindingParam("messageId") String messageId) {
+    	public void onSelectedMessage(@BindingParam("id") String id, @BindingParam("messageId") String messageId) {
        
-    	System.out.println("Chat Tracker event - message with messageId=" + messageId + " has been selected");
-    }
+    		System.out.println("Chat Tracker event - message with messageId=" + messageId + " has been selected");
+    	}
 
 	/** 
-	 * Event from client side to notify when
-	 * a message has been deleted on Chat Tracker (zkctracker)
+	 * Event from client side to notify when a message has been deleted on Chat Tracker (zkctracker)
 	 * Useful to synch the data model
 	 * 
 	 * @param id: zk component ID 
 	 * @param messageId: unique message id
 	 */
 	@Command("zkctracker$onDeleteMessage")
-    public void onDeleteMessage(@BindingParam("id") String id, @BindingParam("messageId") String messageId) {
+    	public void onDeleteMessage(@BindingParam("id") String id, @BindingParam("messageId") String messageId) {
        
-    	// find message in the data model by unique message id
-    	JSONArray messages = (JSONArray)messagesDataModel.get("messages");
+    		// find message in the data model by unique message id
+    		JSONArray messages = (JSONArray)messagesDataModel.get("messages");
     	
-    	for (Object obj: messages) {
+    		for (Object obj: messages) {
     		
-    		JSONObject message = (JSONObject)obj;
-    		
-    		String strId = message.get("id").toString();
-    		
-    		if (strId.equals(messageId)) {
-    			
-    			// delete message in the queue
-    			messages.remove(obj);
-    			
-    			break;
+    			JSONObject message = (JSONObject)obj;
+    			String strId = message.get("id").toString();
+    			if (strId.equals(messageId)) {
+    				// delete message in the queue
+    				messages.remove(obj);
+    				break;
+    			}
     		}
-    	}
 
-    	System.out.println("Chat Tracker event - message with messageId=" + messageId + " has been deleted");
+    		System.out.println("Chat Tracker event - message with messageId=" + messageId + " has been deleted");
 	}
 	
 	/** 
-	 * Event from client side to notify when
-	 * a message has been moved on Chat Tracker (zkctracker)
+	 * Event from client side to notify when a message has been moved on Chat Tracker (zkctracker)
 	 * Useful to synch the data model
 	 * 
 	 * @param id: zk component ID 
@@ -220,31 +212,27 @@ public class CTrackerViewModel {
 	 * 
 	 */
 	@Command("zkctracker$onMoveMessage")
-    public void onMoveMessage(@BindingParam("id") String id, @BindingParam("messageId") String messageId, @BindingParam("from") String from, @BindingParam("y") Integer y) {
+    	public void onMoveMessage(@BindingParam("id") String id, @BindingParam("messageId") String messageId, @BindingParam("from") String from, @BindingParam("y") Integer y) {
        
-    	// Find message in the data model by unique message id
-    	JSONArray messages = (JSONArray)messagesDataModel.get("messages");
+    		// Find message in the data model by unique message id
+    		JSONArray messages = (JSONArray)messagesDataModel.get("messages");
     	
-    	for (Object obj: messages) {
+    		for (Object obj: messages) {
     		
-    		JSONObject message = (JSONObject)obj;
-    		
-    		String strId = message.get("id").toString();
-    		
-    		if (strId.equals(messageId)) {
+    			JSONObject message = (JSONObject)obj;
+	    		String strId = message.get("id").toString();
+	    		if (strId.equals(messageId)) {
     			
-    			// update message position
-    			message.put("from", from);	// new x coordinate is given by user owner x position on the screen
-    			message.put("y", y);		// new y coordinate
-    			    			
-    			break;
+	    			// update message position
+    				message.put("from", from);	// new x coordinate is given by user owner x position on the screen
+    				message.put("y", y);		// new y coordinate
+    				break;
+    			}
     		}
-    	}
 
-    	System.out.println("Chat Tracker event - message with messageId=" + messageId + " has been moved at y=" + y);
+    		System.out.println("Chat Tracker event - message with messageId=" + messageId + " has been moved at y=" + y);
 	}
 
-	
 	/**
 	 * Called to load from file an example of chat
 	 */
@@ -268,8 +256,7 @@ public class CTrackerViewModel {
 		
 		messagesDataModel = readJSONFile("examples/messagesList2.json");
 
-		// I added this line below to force the Chat Tracker reloading. 
-
+		// I added this line to force the Chat Tracker reloading. 
 		messagesDataModel.put("date", new Date().toString());
 	}	
 	
@@ -298,20 +285,20 @@ public class CTrackerViewModel {
 			
 			// read file line by line
 			br = new BufferedReader(new FileReader(file));
-		    StringBuilder  sb = new StringBuilder();
-		    String line = br.readLine();
+		    	StringBuilder  sb = new StringBuilder();
+		    	String line = br.readLine();
 	
-		    while (line != null) {
-		        sb.append(line);
-		        line = br.readLine();
-		    }
-		    String everything = sb.toString();
-		    br.close();
-		    br = null;
+		    	while (line != null) {
+		        	sb.append(line);
+		        	line = br.readLine();
+		    	}
+		    	String everything = sb.toString();
+		    	br.close();
+		    	br = null;
 		    
-		    // parse text file to get JSON Object
-		    Object obj = new JSONParser().parse(everything);
-		    return (JSONObject)obj;
+		    	// parse text file to get JSON Object
+		    	Object obj = new JSONParser().parse(everything);
+		    	return (JSONObject)obj;
 		    
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -323,7 +310,7 @@ public class CTrackerViewModel {
 		finally {
 			try {
 				if (br != null) 
-					br.close();
+				    br.close();
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
