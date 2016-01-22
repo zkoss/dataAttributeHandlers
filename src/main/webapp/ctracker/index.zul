@@ -5,13 +5,13 @@
 	For this reason you might see the following error in the browser console.
 	"Uncaught Error: Bootstrap's JavaScript requires jQuery version 1.9.1 or higher, but lower than version 3"
 	It's an error and you should update JQuery version but for this demo it seems not required.
-	-->
+	 -->
 	 
 	<style src="3rdparty/bootstrap/css/bootstrap.min.css" />
 	<script src="3rdparty/bootstrap/js/bootstrap.min.js" />
 	<style src="css/custom.css" />
     	
-    <window viewModel="@id('vm') @init('org.zkoss.handlers.enrico.ctracker.CTrackerViewModel')" border="normal">
+    	<window viewModel="@id('vm') @init('org.zkoss.handlers.enrico.ctracker.CTrackerViewModel')" border="normal">
 		<caption label="Chat Tracker Data Handler Demo"/>
 		<div class="container">
 			<div class="row voffset">
@@ -23,7 +23,7 @@
 							The first component is a custom drop down with image and description based on ddSlick 3rd Party Library.
 							The second component is a custom SVG chat based on a svg.js 3rd Party Library, a lightweight library for manipulating and animating SVG. 
 							Following the Data Handler ZK API I was able to integrate these two JQuery UI Widgets and create their relative Data Handlers which I called "zkddslick" and "zkctracker" (see WEB-INF/zk.xml file)
-				        	And finally, thanks to this ZK link http://www.zkoss.org/zk-bootstrap I was able to build a very nice layout that works perfectly in all devices (desktop, tablet and mobile).
+				        		And finally, thanks to this ZK link http://www.zkoss.org/zk-bootstrap I was able to build a very nice layout that works perfectly in all devices (desktop, tablet and mobile).
 				        	</label>
 					</div>
 				</div>
@@ -73,5 +73,5 @@
 				</div>
 			</div>
 		</div>		
-    </window>
+    	</window>
 </zk>
