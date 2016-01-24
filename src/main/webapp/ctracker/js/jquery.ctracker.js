@@ -5,14 +5,14 @@
  * Svg.js is a lightweight library for manipulating and animating SVG.
  *
  * This is a simple widget to display messages among people as a
- * flow chart where you can do that:
+ * flow chart where you can do these things:
  * - drag and drop users icons to change users order (in this demo I cannot manage the drop action)
  * - drag and drop messages to change the messages order
  * - use HOME, END, UP, DOWN keys and mouse click to move the focus between all messages
  * - use DEL key to delete a message
- * - drag and drop message over trash icon to delete a message (trash will be visible only when you start drag a message) 
+ * - drag and drop message over trash icon to delete a message (trash will be visible only when you start drag a message)
  * - catch events about user selected, message selected, message deleted and message moved
- * 
+ *
  * This example could be useful to create an application to teach English,
  * where the students have to reorder the users' messages until they are in the right order.
  *
@@ -59,12 +59,12 @@ $(function ($) {
              * - message deleted with drag and drop over the trash icon
              * - message deleted with DELETE key
              */
-            onDeleteMessage: null,            
+            onDeleteMessage: null,
 
             /* Event dispatched when this action is performed:
              * - message moved with drag and drop
              */
-            onMoveMessage: null 
+            onMoveMessage: null
         },
 
         _init: function () {
@@ -111,7 +111,7 @@ $(function ($) {
             this._on(true, this.element, {'keyup': '_evKeyUp'});
             this._on(true, this.element, {'click': '_evClick'});
             this._on(true, this.$view, {'scroll': '_evScroll'});
-            
+
            // calculate platform/browser width scrollbar
            this._wScrollbar = (function() {
                 var $tmp = $('<div style="overflow:scroll;position:absolute;width:100px;height:100px;top:-200px" ></div>');
@@ -119,14 +119,14 @@ $(function ($) {
                 var w = $tmp[0].offsetWidth - $tmp[0].clientWidth;
                 $tmp.remove();
                 return w;
-            })();  
-        	
+            })();
+
             // resize content to the new container size
             var self = this;
             $(window).resize(function () {
                 setTimeout (function () {
                     self._updateLayout();
-                }, 1000);    
+                }, 1000);
             });
 
             // set initial values if available
@@ -134,9 +134,9 @@ $(function ($) {
                 this.setValue(this.settings.data);
             else
                 this._draw();
-            
+
             // fix possible initialization size defect
-            this._delay( this._updateLayout, 500 ); 
+            this._delay( this._updateLayout, 500 );
         },
 
         _destroy: function () {
@@ -264,7 +264,7 @@ $(function ($) {
 
             this._drawUsers();
             this._drawMessages();
-            this._updateLayout();  
+            this._updateLayout();
         },
 
         _drawUsers: function () {
@@ -287,10 +287,10 @@ $(function ($) {
                 .style('cursor:pointer')
                 .remember('obj', user);
 
-            // add image    
+            // add image
             usr.image(user.image, 32, 32)
                 .move(user.x - 16, 5);
-            // add label    
+            // add label
             usr.text(user.id)
                 .attr({'y': 30, x: user.x, 'text-anchor': 'middle'});
             // add vertical lines body area
@@ -370,8 +370,8 @@ $(function ($) {
             // make the message draggable
             msg.draggable();
 
-            // set up drag events to re-position a message 
-            // to the closest vertical user line at the end 
+            // set up drag events to re-position a message
+            // to the closest vertical user line at the end
             // of drag and drop.
             msg.on('beforedrag', $.proxy(this._evMessageDragStart, this));
             msg.on('dragmove', $.proxy(this._evMessageDragMove, this));
@@ -401,7 +401,7 @@ $(function ($) {
 
             var $div = this.$view; //$(this.element);
             if ($div.innerWidth() > wRequired)
-                wRequired = $div.innerWidth() - this._wScrollbar; 
+                wRequired = $div.innerWidth() - this._wScrollbar;
             if ($div.innerHeight() > hRequired)
                 hRequired = $div.innerHeight();
 
@@ -429,8 +429,8 @@ $(function ($) {
             if (!this._messageSelected) {
                 var msg = this._messagesLayer.first();
                 this._selectMessage(msg, false);
-            } 
-            //else { 
+            }
+            //else {
             //    this._scrollToView(this._messageSelected);
             //}
 
@@ -547,7 +547,7 @@ $(function ($) {
                 var pxOrig = this._users[data.idxUser].x;
                 var pxDest = usr.x;
                 msg.animate(300).x(pxDest - pxOrig);
-                
+
                 // and synch the data model on server side with
                 // new message user owner and new message y position
                 // data.idxUser = usr.idx;
@@ -563,7 +563,7 @@ $(function ($) {
             if (!this._active)
                 return true;
 
-            // NOTE: 
+            // NOTE:
             // The previous sibling message might not be the real previous message.
             // The next sibling message might not be the real next message.
             // This because when you rearrange messages the order could be changed.
@@ -600,25 +600,25 @@ $(function ($) {
                     return false;
 
                 case 35: //$.ui.keyCode.END:
-                    msg = items[items.length-1].msg; 
+                    msg = items[items.length-1].msg;
                     this._selectMessage(msg, true);
                     return false;
 
                 case 38: //$.ui.keyCode.UP:
-                    if (idxSelected > 0) 
+                    if (idxSelected > 0)
                         msg = items[--idxSelected].msg;
                     if (msg)
                         this._selectMessage(msg, true);
                     return false;
 
                 case 40: //$.ui.keyCode.DOWN:
-                    if (idxSelected < items.length-1) 
-                        msg = items[++idxSelected].msg; 
+                    if (idxSelected < items.length-1)
+                        msg = items[++idxSelected].msg;
                     if (msg)
                         this._selectMessage(msg, true);
                     return false;
 
-                case 46: //$.ui.keyCode.DELETE:    
+                case 46: //$.ui.keyCode.DELETE:
                     this._deleteMessage(event);
                     return false;
 
@@ -635,16 +635,16 @@ $(function ($) {
             var msg = this._messageSelected.next();
             if (!msg)
                 msg = this._messageSelected.previous();
-            
+
             var data = this._messageSelected.remember('obj');
             this._trigger('onDeleteMessage', event, data);
 
-            // delete SVG message element   
+            // delete SVG message element
             var index = this._messageSelected.remember('obj').idx;
             this._messageSelected.remove();
             this._messageSelected = null;
             this._messages.splice(index, 1);
-        
+
             // select and highlight next or previous message
             this._selectMessage(msg, true);
             this._updateLayout();
@@ -694,9 +694,9 @@ $(function ($) {
             var bbox = msg.tbox();
             var l = this.$view.scrollLeft();
             var w = this.$view.width();
-            if (l > bbox.x) 
+            if (l > bbox.x)
                 this.$view.scrollLeft(bbox.x - 10);
-            else if ((l + w) < bbox.x2) 
+            else if ((l + w) < bbox.x2)
                 this.$view.scrollLeft(bbox.x2 - w + 10);
 
             var t = this.$view.scrollTop();
@@ -704,7 +704,7 @@ $(function ($) {
 
             if ((t + + this._hHeader) > bbox.y)
                 this.$view.scrollTop(bbox.y - this._hHeader - 10);
-            else if ((t + h) < bbox.y2)    
+            else if ((t + h) < bbox.y2)
                 this.$view.scrollTop(bbox.y2 - h + 10);
         },
 

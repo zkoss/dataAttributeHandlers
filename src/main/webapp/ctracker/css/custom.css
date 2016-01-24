@@ -1,4 +1,4 @@
-/* 
+/*
  * Application css for look and feel customization.
  * When we try to integrate different technologies and frameworks
  * (ZK framework, JQuery UI, Boostrap, etc) sometimes happens that we have
@@ -6,19 +6,19 @@
  * Here is the right location where to fix these things
  */
 
-.voffset  { 
-	margin-top: 2px; 
+.voffset  {
+	margin-top: 2px;
 }
 
 a {
-  color: #337ab7;
-  text-decoration: none;
+	color: #337ab7;
+	text-decoration: none;
 }
 
 a:hover,
 a:focus {
-  color: #23527c;
-  text-decoration: none;
+	color: #23527c;
+	text-decoration: none;
 }
 
 .dd-option-image, .dd-selected-image {
@@ -27,6 +27,6 @@ a:focus {
 }
 
 .dd-selected {
-	font-weight: normal; 
+	font-weight: normal;
 	padding: 5px;
 }

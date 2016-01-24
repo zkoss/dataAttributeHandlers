@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zk>
     <session-config>
-            <device-type>ajax</device-type>    
-            <timeout-uri></timeout-uri>    
+            <device-type>ajax</device-type>
+            <timeout-uri></timeout-uri>
     </session-config>
     <client-config>
         <debug-js>true</debug-js>
@@ -22,9 +22,9 @@
                         function (wgt, dataValue) {
                                 var renderChart = function(value) {
                                         wgt.$setValue('');
-                                        wgt.chart = new Chartist.Pie(wgt.$n(), {series: [parseFloat(value)], labels: [value]}, dataValue); 
+                                        wgt.chart = new Chartist.Pie(wgt.$n(), {series: [parseFloat(value)], labels: [value]}, dataValue);
                                 };
-                                wgt.setOverride("setValue", renderChart); 
+                                wgt.setOverride("setValue", renderChart);
                                 renderChart(wgt.getValue());
                                 wgt.listen({onAfterSize: function() {wgt.chart.update();}});
                         }
@@ -47,11 +47,11 @@
                         wgt.height = '256';
                     } else {
                         wgt.height = wgt.getHeight();
-                    }      
+                    }
                     var createqrcode = function(value) {
                         if (wgt.qrcode!=null) {
                             wgt.qrcode.clear();
-                            wgt.qrcode.makeCode(value); 
+                            wgt.qrcode.makeCode(value);
                         } else {
                             wgt.qrcode = new QRCode(wgt.$n(), {
                                                 text : value,
@@ -80,12 +80,12 @@
                         wgt.height = '256';
                     } else {
                         wgt.height = wgt.getHeight();
-                    }      
+                    }
                     var createqrcode = function(value) {
                         wgt.$setHref(value);
                         if (wgt.qrcode!=null) {
                             wgt.qrcode.clear();
-                            wgt.qrcode.makeCode(value); 
+                            wgt.qrcode.makeCode(value);
                         } else {
                             wgt.qrcode = new QRCode(wgt.$n(), {
                                                 text : value,
@@ -114,12 +114,12 @@
                         wgt.height = '256';
                     } else {
                         wgt.height = wgt.getHeight();
-                    }  
+                    }
                     var createqrcode = function(value) {
                         wgt.$setValue('');
                         if (wgt.qrcode!=null) {
                             wgt.qrcode.clear();
-                            wgt.qrcode.makeCode(value); 
+                            wgt.qrcode.makeCode(value);
                         } else {
                             wgt.qrcode = new QRCode(wgt.$n(), {
                                                 text : value,
@@ -187,18 +187,18 @@
         </data-handler>
        <data-handler>
             <name>zkddslick</name> <!-- data-zkddslick -->
-			<script src="/ctracker/3rdparty/ddslick/jquery.ddslick.js"></script>  <!-- ddslick Library -->          
-            <script src="/ctracker/js/ddslickHandler.js"></script>  <!-- Data Handler Script -->
+            <script src="/ctracker/3rdparty/ddslick/jquery.ddslick.js"></script>  <!-- ddslick Library -->
+            <script src="/ctracker/js/ddslickHandler.js"></script>                <!-- Data Handler Script -->
         </data-handler>
         <data-handler>
             <name>zkctracker</name>  <!-- data-zkctracker -->
-			<script src="/ctracker/3rdparty/jquery-ui/js/jquery-ui-1.10.4.custom.js"></script>  <!-- Provides API to create JQuery UI widgets -->          
-            <script src="/ctracker/3rdparty/svg/svg.js"></script> <!-- Lightweight library for manipulating and animating SVG -->
-            <script src="/ctracker/3rdparty/svg/svg.filter.js"></script>  <!-- svg.js plugin to adding filter functionality -->
-            <script src="/ctracker/3rdparty/svg/svg.draggable.js"></script>  <!-- svg.js plugin to make svg elements draggable -->
-            <link href="/ctracker/js/jquery.ctracker.css" rel="stylesheet"/> <!-- zkctracker - Graphics Chat css -->
-            <script src="/ctracker/js/jquery.ctracker.js"></script>  <!-- zkctracker - Graphics Chat Library -->
-            <script src="/ctracker/js/ctrackerHandler.js"></script>  <!-- Data Handler Script -->
+            <script src="/ctracker/3rdparty/jquery-ui/js/jquery-ui-1.10.4.custom.js"></script>  <!-- Provides API to create JQuery UI widgets -->
+            <script src="/ctracker/3rdparty/svg/svg.js"></script>             <!-- Lightweight library for manipulating and animating SVG -->
+            <script src="/ctracker/3rdparty/svg/svg.filter.js"></script>      <!-- svg.js plugin to adding filter functionality -->
+            <script src="/ctracker/3rdparty/svg/svg.draggable.js"></script>   <!-- svg.js plugin to make svg elements draggable -->
+            <link href="/ctracker/js/jquery.ctracker.css" rel="stylesheet"/>  <!-- zkctracker - Graphics Chat css -->
+            <script src="/ctracker/js/jquery.ctracker.js"></script>           <!-- zkctracker - Graphics Chat Library -->
+            <script src="/ctracker/js/ctrackerHandler.js"></script>           <!-- Data Handler Script -->
         </data-handler>
-	</client-config>
+  </client-config>
 </zk>

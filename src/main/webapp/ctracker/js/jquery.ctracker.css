@@ -1,11 +1,11 @@
 /* @author Enrico Tedeschini (etedeschini@gmail.com) */
- 
+
 .ctracker {
     border: 1px solid #adadad;
 }
 
 .ctracker-svg {
-	display:block;	
+    display:block;
 }
 
 .ctracker-hline {
@@ -16,19 +16,16 @@
 .ctracker-vline {
     stroke: #adadad;
     stroke-width: 0.6;
-/*     stroke-dasharray: 10; */
 }
 
 .ctracker-box {
-/*     fill: #ffffff; */
     stroke: #adadad;
     stroke-width: 1;
 }
 
-.ctracker-text tspan
-{
+.ctracker-text tspan {
     fill: #00000;
-} 
+}
 
 .ctracker-selected {
     fill: #e0f0ff;
@@ -38,4 +35,3 @@
     stroke: #66afe9;
     stroke-width: 1;
 }
-
