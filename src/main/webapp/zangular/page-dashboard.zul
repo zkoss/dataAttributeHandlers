@@ -1,5 +1,10 @@
 <div xmlns:ng="http://angularjs.org" xmlns="native" xmlns:u="zul"
 	xmlns:ca="client/attribute">
+	<h1>My Dashboard</h1>
+	<h2>Integrating angular charts with ZK</h2>
+	<p>
+	 
+	</p>
 	<div id="angular-charts">
 		<u:div id="zkChart"
 			viewModel="@id('vs') @init('org.zkoss.handlers.odaper.zangular.vm.ChartVM')"

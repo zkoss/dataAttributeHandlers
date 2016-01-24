@@ -1,6 +1,11 @@
 <div xmlns:ng="http://angularjs.org" xmlns="native" xmlns:u="zul"
 	xmlns:ca="client/attribute">
 	<div ng-app="demo" ng-controller="MainCtrl as vm" id="demo">
+		<h1>My Events</h1>
+		<h2>Integrating angular bootstrap calendar with ZK</h2>
+		<p>
+
+		</p>
 		<div class="col-md-8 col-md-offset-2">
 			<h2 class="text-center">{{ vm.calendarTitle }}</h2>
 
