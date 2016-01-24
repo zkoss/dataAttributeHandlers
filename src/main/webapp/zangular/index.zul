@@ -9,33 +9,24 @@
 		<nav id="header"
 			class="navbar navbar-inverse navbar-fixed-top">
 			<div class="container-fluid">
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle"
-						data-toggle="collapse" data-target="#myNavbar">
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-				</div>
-				<div class="collapse navbar-collapse navbar-left"
-					id="myNavbar">
+				<div class="navbar-left" id="myNavbar">
 					<ul class="nav nav-pills "
-						style="visibility: visible;">
+						style="visibility: visible;" role="tablist">
 						<li class="active">
 							<a href="#home" data-toggle="tab"
-								aria-expanded="true">
+								aria-expanded="true" aria-controls="home" role="tab">
 								Home
 							</a>
 						</li>
 						<li>
-							<a href="#page-calendar" data-toggle="tab"
-								aria-expanded="false">
+							<a href="#events" data-toggle="tab"
+								aria-expanded="false" aria-controls="events" role="tab">
 								My Events
 							</a>
 						</li>
 						<li class="">
-							<a href="#page-charts" data-toggle="tab"
-								aria-expanded="false">
+							<a href="#dashboard" data-toggle="tab"
+								aria-expanded="false" aria-controls="dashboard" role="tab">
 								My Dashboard
 							</a>
 						</li>
@@ -49,7 +40,7 @@
 								<span
 									class="glyphicon glyphicon-user">
 								</span>
-								Zker Khaled Mathlouthi
+								Zker Khaled Mathlouthi [Odaper]
 							</a>
 						</li>
 					</ul>
@@ -57,17 +48,19 @@
 			</div>
 		</nav>
 
-		<div class="container">
-			<div class="col-xs-12 page">
-				<h2>ZK with Angular</h2>
+		<div class="container tab-content">
+			<div role="tabpanel" class="tab-pane col-xs-12 page active"
+				id="home">
+				<u:include mode="defer" src="page-home.zul" />
 			</div>
-			<div id="page-calendar" class="col-xs-12 page">
+			<div role="tabpanel" id="events"
+				class="tab-pane col-xs-12 page">
 				<u:include id="page-calendar" mode="defer"
-					src="index3.zul" />
+					src="page-events.zul" />
 			</div>
-			<div id="page-charts" class="col-xs-12 page">
-				<u:include id="page-charts" mode="defer"
-					src="index2.zul" />
+			<div role="tabpanel" id="dashboard"
+				class="tab-pane col-xs-12 page">
+				<u:include mode="defer" src="page-dashboard.zul" />
 			</div>
 		</div>
 
