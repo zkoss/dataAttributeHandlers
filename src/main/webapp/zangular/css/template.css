@@ -5,9 +5,10 @@ This is a custom material design for a sample BootStrap template
 body {
 	padding: 0px;
 	padding-top: 100px;
-	font-size: 13px;
-    line-height: 1.42857143;
-    color: #5e5e5e;
+	padding-bottom: 60px;
+	font-size: 14px;
+    line-height: 22px;
+    color: #333;
     background-color: #edecec;
 }
 h2 {
@@ -36,6 +37,19 @@ h2 {
 	color: #fff;
 	padding: 0px 30px;
 }
+#footer {
+	box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.3);
+	min-height: 30px;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	
+	background-color: #BDBDBD;
+	color: #fff;
+}
 #myNavbar {
 	margin-top: 15px;
 }
@@ -47,11 +61,10 @@ h2 {
     margin-bottom: 20px;
 }
 #author {
-	border-radius: 5px;
-    background: rgba(255, 255, 255, 0.22);
-    margin-top: 15px;
-    padding: 10px 20px;
-    color: #fff;
+    padding: 10px 40px;
+    color: #333;
+    font-weight: 600;
+    font-size: 14px;
 }
 /****/
 .row-nopadding>div[class^="col-"] {
@@ -159,6 +172,7 @@ h2 {
 .container {
 	min-height: 100%;
 	overflow: hidden;
+	margin-bottom: 50px;
 }
 
 .turn-left {

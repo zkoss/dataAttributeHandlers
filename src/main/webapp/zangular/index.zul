@@ -31,19 +31,6 @@
 							</a>
 						</li>
 					</ul>
-
-				</div>
-				<div class="container-fluid">
-					<ul class="nav navbar-nav navbar-right">
-						<li>
-							<a href="#" id="author">
-								<span
-									class="glyphicon glyphicon-user">
-								</span>
-								Zker Khaled Mathlouthi [Odaper]
-							</a>
-						</li>
-					</ul>
 				</div>
 			</div>
 		</nav>
@@ -63,7 +50,17 @@
 				<u:include mode="defer" src="page-dashboard.zul" />
 			</div>
 		</div>
-
+		<nav id="footer"
+			class="navbar navbar-inverse navbar-fixed-bottom">
+			<ul class="nav navbar-nav navbar-right">
+				<li>
+					<a href="#" id="author">
+						<span class="glyphicon glyphicon-user"></span>
+						Author: Khaled Mathlouthi [Odaper]
+					</a>
+				</li>
+			</ul>
+		</nav>
 
 	</body>
 </html>

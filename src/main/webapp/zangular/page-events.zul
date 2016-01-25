@@ -2,9 +2,39 @@
 	xmlns:ca="client/attribute">
 	<div ng-app="demo" ng-controller="MainCtrl as vm" id="demo">
 		<h1>My Events</h1>
-		<h2>Integrating angular bootstrap calendar with ZK</h2>
+		<h2>
+			3rd Party Library: Angular Bootstrap Calendar
+			https://github.com/mattlewis92/angular-bootstrap-calendar
+		</h2>
+		<br></br>
 		<p>
-
+			This page integrates the "Angular Boostrap Calendar" module
+			to manage the events for the current user using ZK Data
+			handler and Namespaces:
+			<ul>
+				<li>Zul: see webapp/zangular/page-events.zul</li>
+				<li>
+					Html: a custom div (u:div) is used with an
+					identifier "wmlCalendar" to initialize and interact
+					with the angular calendar
+				</li>
+				<li>
+					Server side: the calendar's view type and a client
+					attribute "mwlcalendar" is set to the custom div
+					(see
+					org.zkoss.handlers.odaper.zangular.ui.CalendarUI)
+				</li>
+				<li>
+					ZK View Model: a view model is set to the custom div
+					(see
+					org.zkoss.handlers.odaper.zangular.vm.CalendarVM)
+				</li>
+				<li>
+					Data Handler: a data handler js file is used to
+					interact between ZK ViewModel and Angular Model (see
+					webapp/js/data-mwlcalendar.js)
+				</li>
+			</ul>
 		</p>
 		<div class="col-md-8 col-md-offset-2">
 			<h2 class="text-center">{{ vm.calendarTitle }}</h2>

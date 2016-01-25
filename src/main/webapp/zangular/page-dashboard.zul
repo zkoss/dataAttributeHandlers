@@ -1,7 +1,7 @@
 <div xmlns:ng="http://angularjs.org" xmlns="native" xmlns:u="zul"
 	xmlns:ca="client/attribute">
 	<h1>My Dashboard</h1>
-	<h2>Integrating angular charts with ZK</h2>
+	<h2>3rd Party Library: Angular Charts http://jtblin.github.io/angular-chart.js/</h2>
 	<p>
 	 
 	</p>

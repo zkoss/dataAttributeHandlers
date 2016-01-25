@@ -1,11 +1,6 @@
 package org.zkoss.handlers.odaper.zangular.vm;
 
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.Random;
 
 import org.zkoss.bind.annotation.Command;
 import org.zkoss.bind.annotation.NotifyChange;
@@ -15,12 +10,13 @@ import org.zkoss.bind.annotation.ToClientCommand;
 import org.zkoss.bind.annotation.ToServerCommand;
 
 /**
- * ZK Chart View Model which initializes the charts for stats for the user's
- * events managed by the first component "Angular Calendar"
+ * ZK Chart View Model which handles the data of the charts based on the user's
+ * events managed by the first component "Angular Bootstrap Calendar"
  * 
  * @author Odaper: Khaled Mathlouthi
  * @version 1.0
  * @category ZK Namespace: Client Attribute
+ * @licence MIT Licence
  * **/
 @NotifyCommands({
 		@NotifyCommand(value = "charts$initLineChart", onChange = "_vm_.lineChartData"),
@@ -54,10 +50,7 @@ public class ChartVM {
 		test.add(100);
 		test.add(150);
 		barChartData.add(test);
-		
-		
-		
-		
+
 	}
 
 	public ArrayList<ArrayList<Integer>> getLineChartData() {
@@ -75,7 +68,5 @@ public class ChartVM {
 	public void setBarChartData(ArrayList<ArrayList<Integer>> barChartData) {
 		this.barChartData = barChartData;
 	}
-	
-	
 
 }

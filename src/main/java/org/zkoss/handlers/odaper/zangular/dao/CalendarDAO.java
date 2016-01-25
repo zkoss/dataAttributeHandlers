@@ -14,13 +14,14 @@ import org.zkoss.zk.ui.Session;
 import org.zkoss.zk.ui.Sessions;
 
 /**
- * Singleton DAO class to manage the data in the user's memory (the memory is
- * used as the storage system just for test, it should be changed by either
- * RDBMS or NOSQL database ...)
+ * Singleton DAO class to manage the data in the user's session (the user
+ * session is used as the storage system just for test, it should be changed by
+ * either RDBMS or NOSQL database ...)
  * 
  * @author Odaper: Khaled Mathlouthi
  * @version 1.0
  * @category Data Access Object layer
+ * @licence MIT Licence
  * **/
 public final class CalendarDAO {
 
@@ -55,7 +56,7 @@ public final class CalendarDAO {
 		} else {
 			// create sample events
 			eventList = new ArrayList<Map<String, Object>>();
-			for (int i = 0; i < 25; i++) {
+			for (int i = 0; i < 10; i++) {
 				eventList.add(createEvent("Event test:" + i, new Date(),
 						new Date()));
 			}
@@ -64,10 +65,22 @@ public final class CalendarDAO {
 		return eventList;
 	}
 
+	/**
+	 * remove all the user's session data collection and create new one for the
+	 * updated values from the angular model
+	 * **/
+	public void updateAll(final ArrayList<Map<String, Object>> eventList) {
+		final Session sess = Sessions.getCurrent();
+		sess.setAttribute(USER_DATA, eventList);
+	}
+
+	/**
+	 * Create a sample event by the given parameters
+	 * **/
 	private Map<String, Object> createEvent(final String title,
 			final Date startDate, final Date endDate) {
-		long randomDate = getRandomDate();
-		Map<String, Object> obj1 = new LinkedHashMap<String, Object>();
+		final long randomDate = getRandomDate();
+		final Map<String, Object> obj1 = new LinkedHashMap<String, Object>();
 		obj1.put("title", title);
 		obj1.put("type", "warning");
 		obj1.put("startsAt", randomDate);
@@ -78,32 +91,25 @@ public final class CalendarDAO {
 		return obj1;
 	}
 
+	/**
+	 * Generate a random date between the current year and the after next one
+	 * **/
 	private long getRandomDate() {
 		long result = 0;
 		try {
-			DateFormat dateFormat = new SimpleDateFormat("yyyy");
-			int year = Calendar.getInstance().get(Calendar.YEAR);
-			Date dateFrom = dateFormat.parse(String.valueOf(year));
-			long timestampFrom = dateFrom.getTime();
-			Date dateTo = dateFormat.parse(String.valueOf(year + 2));
-			long timestampTo = dateTo.getTime();
-			Random random = new Random();
-			long timeRange = timestampTo - timestampFrom;
-			result = timestampFrom
-					+ (long) (random.nextDouble() * timeRange);
+			final DateFormat dateFormat = new SimpleDateFormat("yyyy");
+			final int year = Calendar.getInstance().get(Calendar.YEAR);
+			final Date dateFrom = dateFormat.parse(String.valueOf(year));
+			final long timestampFrom = dateFrom.getTime();
+			final Date dateTo = dateFormat.parse(String.valueOf(year + 2));
+			final long timestampTo = dateTo.getTime();
+			final Random random = new Random();
+			final long timeRange = timestampTo - timestampFrom;
+			result = timestampFrom + (long) (random.nextDouble() * timeRange);
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
 		return result;
-	}
-
-	/**
-	 * remove all the user's session data collection and create new one for the
-	 * updated values from the angular model
-	 * **/
-	public void updateAll(final ArrayList<Map<String, Object>> eventList) {
-		final Session sess = Sessions.getCurrent();
-		sess.setAttribute(USER_DATA, eventList);
 	}
 
 }

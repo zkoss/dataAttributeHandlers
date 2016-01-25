@@ -12,6 +12,7 @@ import org.zkoss.handlers.odaper.zangular.dao.CalendarDAO;
  * @author Odaper: Khaled Mathlouthi
  * @version 1.0
  * @category Service layer
+ * @licence MIT Licence
  * **/
 public final class CalendarService {
 
@@ -33,7 +34,6 @@ public final class CalendarService {
 	 * 
 	 * @return events list
 	 * **/
-	@SuppressWarnings("unchecked")
 	public ArrayList<Map<String, Object>> getAllEvents() {
 		return CalendarDAO.get().getAllEvents();
 	}

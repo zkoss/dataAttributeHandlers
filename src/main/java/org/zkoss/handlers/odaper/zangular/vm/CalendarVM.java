@@ -20,6 +20,7 @@ import org.zkoss.handlers.odaper.zangular.services.CalendarService;
  * @author Odaper: Khaled Mathlouthi
  * @version 1.0
  * @category ZK Namespace: Client Attribute
+ * @licence MIT Licence
  * **/
 @NotifyCommands({ @NotifyCommand(value = "mwlcalendar$initEvent", onChange = "_vm_.eventList"), })
 @ToClientCommand({ "mwlcalendar$initEvent" })
@@ -44,7 +45,7 @@ public class CalendarVM {
 		return eventList;
 	}
 
-	public void setEventList(ArrayList<Map<String, Object>> eventList) {
+	public void setEventList(final ArrayList<Map<String, Object>> eventList) {
 		this.eventList = eventList;
 	}
 

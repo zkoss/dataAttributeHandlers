@@ -1,8 +1,56 @@
 <div xmlns:ng="http://angularjs.org" xmlns="native" xmlns:u="zul"
 	xmlns:ca="client/attribute">
 	<h1>ZK Challenge</h1>
-	<h2>Power of ZK with AngularJS</h2>
+	<h2>Power of ZK with AngularJS and Bootstrap</h2>
+	<br></br>
 	<p>
-	 
+		Hi Zkers, you will find here a short demo of using ZK with
+		angularjs modules easily, please find below a resume about each
+		page (see the top main menu):
+		<ul>
+			<li>
+				Home: This is the main page with a sample responsive
+				bootstrap template using ZK Namespaces, it contains
+				three regions:
+				<ul>
+					<li>Header: displays the main menu</li>
+					<li>Footer: displays the author's name</li>
+					<li>
+						Body: displays the content of the selected menu
+						entry using bootstrap tabs component
+					</li>
+				</ul>
+			</li>
+			<li>
+				My events: This page integrates the "Angular Boostrap
+				Calendar" module to manage the events for the current
+				user using ZK Data handler and Namespaces
+			</li>
+			<li>
+				My dashboard: This page integrates the "Angular Charts"
+				module to show statistics of the user's events (see "My
+				events" page) using ZK Data handler and Namespaces
+			</li>
+		</ul>
+	</p>
+	<br></br>
+	<p>
+		<h2>Source code:</h2>
+		<br></br>
+		<p>
+			You will find under the webapp a folder called "zangular"
+			which contains the following sub folders:
+			<ul>
+				<li>
+					css: contains the stylesheet for this bootstrap
+					template
+				</li>
+				<li>
+					js: contains the zk data handler and angular modules
+					js files
+				</li>
+				<li>libs: contains the 3rd party libraries</li>
+			</ul>
+		</p>
 	</p>
 </div>
