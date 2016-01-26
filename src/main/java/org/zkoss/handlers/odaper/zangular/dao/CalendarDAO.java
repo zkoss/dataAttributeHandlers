@@ -80,6 +80,7 @@ public final class CalendarDAO {
 	private Map<String, Object> createEvent(final String title,
 			final Date startDate, final Date endDate) {
 		final long randomDate = getRandomDate();
+		
 		final Map<String, Object> obj1 = new LinkedHashMap<String, Object>();
 		obj1.put("title", title);
 		obj1.put("type", "warning");
@@ -90,7 +91,7 @@ public final class CalendarDAO {
 		obj1.put("deletable", "false");
 		return obj1;
 	}
-
+	
 	/**
 	 * Generate a random date between the current year and the after next one
 	 * **/

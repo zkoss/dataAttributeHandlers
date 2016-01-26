@@ -4,6 +4,7 @@ function (wgt, option) {
 		  // get the data from the view model
 		  self.command("$getLineBarData");
 		  self.command("$getBarData");
+		  self.command("$getPieData");
 	  }
 	  // MVVM only
 	  if (self.after) {
@@ -18,6 +19,14 @@ function (wgt, option) {
 	    	if (evt != null) {
 	    		angular.element("#bar-chart").scope().data = evt;
 	    		angular.element("#bar-chart").scope().$apply();
+	      }
+	    });
+	    self.after('$initPieChart', function (evt) {
+	    	if (evt != null) {
+	    		angular.element("#pie-chart").scope().data = evt;
+	    		angular.element("#pie-chart").scope().$apply();
+	    		angular.element("#doughnut-chart").scope().data = evt;
+	    		angular.element("#doughnut-chart").scope().$apply();
 	      }
 	    });
 	  }

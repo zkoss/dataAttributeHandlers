@@ -35,6 +35,7 @@ public class CalendarVM {
 		this.eventList = CalendarService.get().getAllEvents();
 	}
 
+	@SuppressWarnings("unchecked")
 	@Command("mwlcalendar$updateEvents")
 	public void updateEvents(@BindingParam("events") Object events) {
 		CalendarService.get()
