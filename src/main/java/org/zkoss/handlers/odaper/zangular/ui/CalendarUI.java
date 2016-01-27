@@ -4,9 +4,9 @@ import org.zkoss.zul.Div;
 
 /**
  * Custom ZK Div Component to initialize the angular calendar from server side.
- * Few parameters are handled here just for test, full parameters will be
- * supported soon when this project will be published for the ZK Community in
- * GitHub
+ * Few parameters are handled here just for test (view type of the calendar),
+ * full parameters will be supported soon when this project will be published
+ * for the ZK Community in GitHub
  * 
  * @author Odaper: Khaled Mathlouthi
  * @version 1.0

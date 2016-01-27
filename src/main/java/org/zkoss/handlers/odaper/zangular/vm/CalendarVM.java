@@ -14,7 +14,7 @@ import org.zkoss.handlers.odaper.zangular.services.CalendarService;
 
 /**
  * ZK Calendar View Model which handles the events data changes between the
- * angular calendar model and server ZK view model. All the events are stored in
+ * angular calendar model and ZK view model. All the events are stored in
  * the user's session
  * 
  * @author Odaper: Khaled Mathlouthi

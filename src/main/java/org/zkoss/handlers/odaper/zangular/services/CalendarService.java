@@ -62,8 +62,7 @@ public final class CalendarService {
 				long timeStamp = parsedDate.getTime();
 				eventMonth = getMonth(timeStamp);
 				eventYear = getYear(timeStamp);
-			} catch (Exception e) {// this generic but you can control another
-									// types of exception
+			} catch (Exception e) {
 				eventMonth = getMonth(Long.parseLong(event.get(STARTS_AT)
 						.toString()));
 				eventYear = getYear(Long.parseLong(event.get(STARTS_AT)
