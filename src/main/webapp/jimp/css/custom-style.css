@@ -1,0 +1,63 @@
+[class*="z-"]:not([class*="z-icon-"]) {
+	font-family: 'Roboto', sans-serif;
+}
+
+body *:not ([class*="z-icon-"]) {
+	font-family: 'Roboto', sans-serif;
+}
+
+code {
+	font-family: 'Roboto Mono', monospace;
+}
+
+.image, .controls {
+	border-radius: 4px;
+	border: 1px solid #ccc;
+}
+
+.controls span.z-label {
+	display: inline-block;
+	width: 120px;
+	margin-left: 10px;
+}
+
+.previewOpacity, .previewWidth {
+	position: relative;
+}
+
+.previewOpacity img, .previewWidth img {
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+div.beforeWrapper {
+	width: 100px;
+	height: 200px;
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	overflow: hidden;
+	border-left: 1px solid #000;
+}
+
+span.preview-warning {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 200px;
+	height: 200px;
+	line-height: 200px;
+	text-align: center;
+	font-size: 18px;
+	font-weight: bold;
+	background: grey;
+	color: white;
+}
+
+.boring-info {
+	line-height: 19px;
+	padding-left: 5px;
+	padding-right: 5px;
+	display: inline-block;
+}

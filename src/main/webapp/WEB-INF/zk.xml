@@ -200,5 +200,10 @@
             <script src="/ctracker/js/jquery.ctracker.js"></script>  <!-- zkctracker - Graphics Chat Library -->
             <script src="/ctracker/js/ctrackerHandler.js"></script>  <!-- Data Handler Script -->
         </data-handler>
+		<data-handler>
+			<name>jimp</name>
+			<script src="/jimp/scripts/caman.full.pack.js" />
+			<script src="/jimp/scripts/data-jimp.js" />
+		</data-handler>        
 	</client-config>
 </zk>

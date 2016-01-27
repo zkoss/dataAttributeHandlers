@@ -1,0 +1,203 @@
+<?taglib uri="http://www.zkoss.org/dsp/web/core" prefix="c"?>
+
+<window xmlns:ca="client/attribute"
+	viewModel="@id('vm') @init('org.zkoss.handlers.jimp.JimpViewModel')"
+	id="myWindow" hflex="1" vflex="1">
+	<style src="css/custom-style.css" />
+	<style src="https://fonts.googleapis.com/css?family=Roboto:400,900" />
+	<style src="https://fonts.googleapis.com/css?family=Roboto+Mono" />
+	
+	<borderlayout hflex="1" vflex="1">
+
+		<west width="500px" collapsible="true" border="normal"
+			title="Informations" autoscroll="true">
+
+			<vbox hflex="1" vflex="1">
+
+				<html sclass="boring-info">
+					
+					<![CDATA[ <h2>Author</h2>
+
+					<p>Mathieu Piette, <a
+					href="https://twitter.com/mathieupiette">@mathieupiette</a>.</p>
+
+					<h2>Third party library used</h2>
+
+					<p>CamanJS, <a
+					href="http://camanjs.com">camanjs.com</a>.</p>
+
+					<h2>Description</h2>
+
+					<p> This handler can modify the contrast and the brightness
+					of an image, as well as coloring it. Usage is pretty
+					straighforward: use an <code>Image</code> component with
+					<code>use="org.zkoss.handlers.jimp.Jimp"</code> then you
+					just have to specify the <code>contrast</code>,
+					<code>brightness</code> and <code>color</code> attributes.
+					</p>
+
+					<p> I used a custom class
+					(<code>org.zkoss.handlers.jimp.Jimp</code>) instead of the
+					default <code>org.zkoss.zul.Image</code>, so I can have
+					custom attributes that are easily bindable to fields of the
+					ViewModel. See how the <code>contrast</code>,
+					<code>brightness</code> and <code>color</code> in this
+					example are just plain fields, but the datahandler API makes
+					it very easy to get them in Javascript to call the 3rd party
+					library that updates the picture. </p>
+
+					<p> In this example, I resolved a little difficulty that was
+					not in the <a href="../chartist/index.zul">chartist
+					example</a>. While the chartist example needs only one
+					attribute (just the percentage), I wanted to have three
+					(contrast, brightness, color). The usage of the custom class
+					for the <code>Image</code> component solved a part of this
+					problem: I can have three attributes on the
+					<code>Image</code> component that are bound to three
+					different fields of the ViewModel.</p>
+
+					<p>I also needed to pass three arguments to the Javascript
+					data handler, but I can only change one data-attribute. The
+					solution was to use Json: whenever one of the three
+					attributes is changed, a Json map is generated and is set as
+					the value of the <code>data-jimp</code> attribute of the
+					<code>Image</code> element. A change of
+					<code>data-jimp</code> triggers ZK's Data-Attribute handler
+					and I can get my Json map in Javascript, thus having access
+					to all three attributes.</p>
+
+					<p>Once the client-side calculation of the processed image
+					is done, the processed image is sent back to the server
+					thanks to Client-Binding: caman's <code>render()</code>
+					function accepts a callback function as an argument. It's
+					automatically called once the calculation is done. I use
+					this callback to call a command of the ViewModel with, as an
+					argument, the processed image data.</p>
+
+					<p>Having the processed image data in the ViewModel is
+					handy, because I can bind it to an other component, like I
+					did for the previews. If I had server-side treatments to
+					apply to the processed image, I could also do them
+					easily.</p>
+
+					<p>Sometimes you just want a preview and don't want to waste
+					bandwidth with high data transfers. In that case a
+					full-client-side solution is better. In
+					<code>data-jimp.js</code>, I also set the processed data as
+					the source of an <code>img</code> element, so everything
+					stays at the client side. The opacity preview uses the value
+					from the ViewModel while the side-by-side preview uses
+					client-side only data. The <code>sendToServer</code> switch
+					of the ViewModel can be used to disable completely this data
+					posting.</p>
+
+					<p>The name <q>Jimp</q> mean <q><strong>J</strong>avascript
+					<strong>I</strong>mage
+					<strong>M</strong>ani<strong>P</strong>ulation</q>. I
+					realize it is awful but I could not come with something
+					better.</p>
+
+					<p>The cat on the picture is Nico. He's my cat and has a
+					message for you: <q>meow meow, meeeooow *purrrrrrrr*</q>.
+					He's proud that he's now a member of the ZK
+					community.</p>]]>
+					
+			</html>
+
+			</vbox>
+
+		</west>
+
+		<center border="none" autoscroll="true">
+
+			<vbox align="center" vflex="1" hflex="1">
+				<image use="org.zkoss.handlers.jimp.Jimp"
+					src="/jimp/images/cat.jpeg" color="@load(vm.color)"
+					contrast="@load(vm.contrast)" brightness="@load(vm.brightness)"
+					sclass="image" id="jimpimage" ca:data-jimp-source="cat"
+					sendToServer="@load(vm.sendToServer)"
+					style="@load(c:cat('box-shadow:0 0 50px ', vm.color))" />
+
+				<separator />
+
+				<vbox sclass="controls" width="450px" align="center">
+					<separator />
+					<hbox hflex="1">
+						<label
+							value="@load(c:cat3('Contrast (', vm.contrast, ')'))" />
+						<slider maxpos="10" curpos="@bind(vm.contrast)" />
+					</hbox>
+					<hbox hflex="1">
+						<label
+							value="@load(c:cat3('Brightness (', vm.brightness, ')'))" />
+						<slider maxpos="50" curpos="@bind(vm.brightness)" />
+					</hbox>
+					<hbox hflex="1">
+						<label value="@load(c:cat3('Color (', vm.color, ')'))" />
+						<colorbox id="colorPicker" width="100px" height="25px"
+							value="@bind(vm.color)" />
+					</hbox>
+					<hbox hflex="1">
+						<label value="Send to server" />
+						<checkbox checked="@bind(vm.sendToServer)" />
+					</hbox>
+					<separator />
+				</vbox>
+
+				<separator />
+
+				<vbox>
+
+					<hbox width="450px" pack="center">
+						<vbox align="center">
+							<label style="font-weight:bold">Opacity preview</label>
+							<label style="font-size:60%">
+								(processed data comes from the ViewModel)
+							</label>
+							<hbox sclass="previewOpacity" width="200px"
+								height="200px">
+								<image src="/jimp/images/cat.jpeg" width="200px"
+									height="200px" />
+								<image src="@load(vm.jpegData)" width="200px"
+									height="200px" style="@load(c:cat('opacity: ', vm.opacity/100))" />
+								<label sclass="preview-warning" visible="@load(!vm.sendToServer)">🚫</label>
+							</hbox>
+						</vbox>
+
+						<separator />
+
+						<vbox align="center">
+							<label style="font-weight:bold">Side-by-side preview</label>
+							<label style="font-size:60%">
+								(processed data comes from the client side)
+							</label>
+							<hbox sclass="previewWidth" width="200px"
+								height="200px">
+								<image ca:data-jimp-destination="cat"
+									width="200px" height="200px" />
+								<div sclass="beforeWrapper" height="200px"
+									width="@load(c:cat(200 - vm.opacity * 2, 'px'))">
+									<image sclass="before"
+										src="/jimp/images/cat.jpeg" width="200px" height="200px" />
+								</div>
+							</hbox>
+						</vbox>
+					</hbox>
+
+					<vbox sclass="controls" width="450px" align="center">
+						<separator />
+						<hbox hflex="1">
+							<label
+								value="@load(c:cat3('Compare (', vm.opacity, ')'))" />
+							<slider maxpos="100" curpos="@bind(vm.opacity)" />
+						</hbox>
+					</vbox>
+
+				</vbox>
+
+			</vbox>
+
+		</center>
+
+	</borderlayout>
+</window>
