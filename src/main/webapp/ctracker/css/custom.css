@@ -1,32 +1,72 @@
 /*
  * Application css for look and feel customization.
- * When we try to integrate different technologies and frameworks
+ * When we try to integrate different technologies, frameworks and devices
  * (ZK framework, JQuery UI, Boostrap, etc) sometimes happens that we have
  * unexpected behavior or unexpected look and feel.
  * Here is the right location where to fix these things
  */
 
+/* Example of different ctracker's background color with different
+   device and orientation
+*/
+
+ /* Tablet portrait */
+ @media screen and (max-width:1024px) {
+
+      .ctracker {
+         background: #045;
+     }
+ }
+
+ /* Tablet landscape */
+ @media screen and (min-width:768px) and (max-width:1024px) and (orientation:landscape) {
+
+    .ctracker {
+        background: #FFF;
+    }
+ }
+
+ /* Mobile portrait */
+ @media screen and (max-width:767px) {
+
+      .ctracker {
+          background: #045;
+      }
+ }
+
+ /* Mobile landscape */
+ @media screen and (min-width:320px) and (max-width:767px) and (orientation:landscape) {
+
+     .ctracker {
+         background: #FFF;
+     }
+ }
+
 .voffset  {
-	margin-top: 2px;
+    margin-top: 2px;
+}
+
+.well {
+    margin-bottom: 5px;
 }
 
 a {
-	color: #337ab7;
-	text-decoration: none;
+    color: #337ab7;
+    text-decoration: none;
 }
 
 a:hover,
 a:focus {
-	color: #23527c;
-	text-decoration: none;
+    color: #23527c;
+    text-decoration: none;
 }
 
 .dd-option-image, .dd-selected-image {
-	width: 32px;
-	height: 32px;
+    width: 32px;
+    height: 32px;
 }
 
 .dd-selected {
-	font-weight: normal;
-	padding: 5px;
+    font-weight: normal;
+    padding: 5px;
 }

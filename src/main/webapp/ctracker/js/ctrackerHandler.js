@@ -21,8 +21,8 @@ function (wgt, dataValue) {
     // initialize ctracker
     wgt._$handle = jq(dom).ctracker({
         data: dataObj,
-        width: wgt.getWidth() || 300,            // I try to inherit width from zk component
-        height: wgt.getHeight() || 300,          // I try to inherit height from zk component
+        //width: wgt.getWidth() || 300,            // I try to inherit width from zk component
+        //height: wgt.getHeight() || 300,          // I try to inherit height from zk component
         tabindex: wgt.getTabindex() || 0,        // I try to inherit tab order from zk component
         iconsDistance: settings.iconsDistance || 180,
         maxCharsPerLine: settings.maxCharsPerLine || 30,
@@ -84,5 +84,12 @@ function (wgt, dataValue) {
         wgt._$handle.ctracker("setValue", dataObj);
     };
 
+    var setHeightChat = function (value) {
+
+        wgt._$handle.ctracker("setHeight", value);
+    }
+
     wgt.setOverride("setValue", setValueChat);
+
+    wgt.setOverride("setHeight", setHeightChat);
 }

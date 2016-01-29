@@ -36,8 +36,8 @@ $(function ($) {
         // Default settings
         defaults: {
 
-            width: 300,
-            height: 300,
+            width: 0,
+            height: 0,
             tabindex: 0,
             iconsDistance: 210,
             maxCharsPerLine: 20,
@@ -84,9 +84,13 @@ $(function ($) {
 
             // create div container with same id already assigned
             var $container = $('<div id="' + this.element.attr('id') + '"></div>')
-                .width(this.settings.width)
-                .height(this.settings.height)
                 .addClass('ctracker');
+            // set size if defined
+            if (this.settings.width)
+                container.width(this.settings.width);
+            if (this.settings.height)
+                container.height(this.settings.height);
+
             this.element.replaceWith($container);
             this.element = $container;
 
@@ -122,12 +126,13 @@ $(function ($) {
             })();
 
             // resize content to the new container size
+            /* Not required
             var self = this;
             $(window).resize(function () {
                 setTimeout (function () {
                     self._updateLayout();
                 }, 1000);
-            });
+            }); */
 
             // set initial values if available
             if (this.settings.data)
@@ -226,9 +231,25 @@ $(function ($) {
 
         /**
          * @public
+         * Set new widget height
+         */
+        setHeight: function (height) {
+
+            //if (console)
+            //    console.log("resize to height=" + height);
+
+            this.element.height(height);
+            this._updateLayout();
+        },
+
+        /**
+         * @public
          * Resize the widget
          */
         resize: function (width, height) {
+
+            //if (console)
+            //    console.log("resize to width=" + width + " and height=" + height);
 
             this.element.width(width);
             this.element.height(height);
@@ -382,13 +403,13 @@ $(function ($) {
 
         _updateLayout: function () {
 
-        	var extraSpace = 10;
+            var extraSpace = 10;
             var bbox = this._messagesLayer.bbox();
 
             // set width required
             var wRequired = 0;
             if (this._users && this._users.length > 0)
-            	this._users[this._users.length-1].x + (this.settings.iconsDistance / 2);
+                this._users[this._users.length-1].x + (this.settings.iconsDistance / 2);
             if (wRequired > 0)
                 wRequired += extraSpace;
             if (bbox.x2 > wRequired)     // special case where we have message too long
@@ -536,7 +557,7 @@ $(function ($) {
 
             // delete message
             if (this._isMouseOverTrash(p)) {
-            	// and synch the data model on server side
+                // and synch the data model on server side
                 this._deleteMessage(event.detail.event);
             }
             // position message to the closest vertical user line
