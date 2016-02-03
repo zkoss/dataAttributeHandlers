@@ -1,0 +1,102 @@
+<div xmlns:ng="http://angularjs.org" xmlns="native" xmlns:u="zul"
+	xmlns:ca="client/attribute">
+	<h1>My Dashboard</h1>
+	<p class="info rose">
+		<b>
+			3rd Party Library:
+			<a target="_blank"
+				href="http://jtblin.github.io/angular-chart.js/">
+				http://jtblin.github.io/angular-chart.js/
+			</a>
+		</b>
+		<br></br>
+		This page integrates the free "Angular Charts" module as a
+		dashboard of the user's events using ZK Data handler and
+		Namespaces.
+	</p>
+	<p>
+		Technical details:
+		<ul>
+			<li>Zul: see webapp/zangular/page-dashboard.zul</li>
+			<li>
+				Zk component: a custom div (u:div) is used with an
+				identifier "zkChart" to initialize the angular charts
+			</li>
+			<li>
+				ZK View Model: a view model is set to the custom div
+				(see org.zkoss.handlers.odaper.zangular.vm.ChartVM)
+			</li>
+			<li>
+				Data Handler: a data handler js file is used to interact
+				between ZK ViewModel and Angular Model (see
+				webapp/js/data-charts.js)
+			</li>
+		</ul>
+	</p>
+	<p>
+		Note: the angular module is integrated as it is, no changes are
+		done. The data are based on the user's events for some charts
+		such as "Line" and "Bar" charts, the data of the other charts
+		are just a sample data. All the charts data are managed by the
+		ZK View model
+
+	</p><br></br>
+	<div id="angular-charts">
+		<u:div id="zkChart"
+			viewModel="@id('vs') @init('org.zkoss.handlers.odaper.zangular.vm.ChartVM')"
+			ca:data-charts="">
+			<div class="col-md-6 col-xs-12" id="line-chart"
+				ng-controller="LineCtrl">
+				<div class="panel panel-default">
+					<div class="panel-heading">Line Chart for 2016</div>
+					<div class="panel-body">
+						<canvas id="line" class="chart chart-line"
+							chart-data="data" chart-labels="labels" chart-legend="true"
+							chart-click="onClick" chart-hover="onHover"
+							chart-series="series">
+						</canvas>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-6 col-xs-12" id="bar-chart"
+				ng-controller="BarCtrl">
+				<div class="panel panel-default">
+					<div class="panel-heading">Bar Chart for 2017</div>
+					<div class="panel-body">
+						<canvas id="bar" class="chart chart-bar"
+							chart-data="data" chart-labels="labels" chart-legend="true"
+							chart-click="onClick" chart-hover="onHover"
+							chart-series="series">
+						</canvas>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-6 col-xs-12" id="doughnut-chart"
+				ng-controller="DoughnutCtrl">
+				<div class="panel panel-default">
+					<div class="panel-heading">Doughnut Chart</div>
+					<div class="panel-body">
+						<canvas id="doughnut"
+							class="chart chart-doughnut" chart-data="data"
+							chart-labels="labels" chart-legend="true">
+						</canvas>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-6 col-xs-12" id="pie-chart"
+				ng-controller="PieCtrl">
+				<div class="panel panel-default">
+					<div class="panel-heading">Pie Chart</div>
+					<div class="panel-body">
+						<canvas id="pie" class="chart chart-pie"
+							chart-data="data" chart-labels="labels" chart-legend="true">
+						</canvas>
+					</div>
+				</div>
+			</div>
+		</u:div>
+	</div>
+	<script type="text/javascript"
+		src="/data-attribute-handlers/zangular/js/demo-charts.js">
+	</script>
+</div>

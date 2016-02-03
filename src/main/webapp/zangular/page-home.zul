@@ -1,0 +1,63 @@
+<div xmlns:ng="http://angularjs.org" xmlns="native" xmlns:u="zul"
+	xmlns:ca="client/attribute">
+	<h1>ZK8: Power of ZK Data Handler and Namespaces</h1>
+	<p class="info">
+		This is a short demo of a sample application "Events management"
+		using frontend technologies "AngularJs" and "Bootstrap" with ZK8
+		framework.
+	</p>
+	<p>
+		Please find below a resume about each page (see the top main
+		menu):
+		<ul>
+			<li>
+				Home: this is the main page with a sample responsive
+				bootstrap template, it contains three regions:
+				<ul>
+					<li>Header: displays the main menu</li>
+					<li>Footer: displays the author's name</li>
+					<li>
+						Body: displays the content of the selected menu
+						entry using bootstrap tabs component
+					</li>
+				</ul>
+			</li>
+			<li>
+				My events: this page integrates the free "Angular
+				Bootstrap Calendar" module to manage the events for the
+				current user
+			</li>
+			<li>
+				My dashboard: this page integrates the free "Angular
+				Charts" module as a dashboard of the user's events
+			</li>
+		</ul>
+	</p>
+	<p>
+		<h2>Source code:</h2>
+		<p>
+			You will find under the webapp a folder called "zangular"
+			which contains the following sub folders:
+			<ul>
+				<li>
+					css: contains the stylesheet for the bootstrap
+					template
+				</li>
+				<li>
+					js: contains the zk data handler and angular modules
+					initialisers js files
+				</li>
+				<li>libs: contains the 3rd party libraries</li>
+				<li>doc: JavaDoc of the java classes</li>
+			</ul>
+		</p>
+	</p>
+	<p>
+		<h2>Note:</h2>
+		<p>
+			This is a demo application not 100% stable yet, tested with
+			chrome and firefox, if you receive a random javascript
+			message, please try to refresh the page.
+		</p>
+	</p>
+</div>

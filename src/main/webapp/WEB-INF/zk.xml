@@ -204,6 +204,34 @@
 			<name>jimp</name>
 			<script src="/jimp/scripts/caman.full.pack.js" />
 			<script src="/jimp/scripts/data-jimp.js" />
-		</data-handler>        
+		</data-handler>
+		<data-handler>
+			<name>mwlcalendar</name>
+			<script src="/zangular/libs/angular1.4.8/angular.min.js"></script>
+			<script src="/zangular/libs/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+			<script
+				src="/zangular/libs/angular-bootstrap-calendar/ui-bootstrap-tpls-0.14.3.min.js"></script>
+			<script src="/zangular/libs/angular-bootstrap-calendar/interact.min.js"></script>
+			<script src="/zangular/libs/angular-bootstrap-calendar/moment.min.js"></script>
+			<script
+				src="/zangular/libs/angular-bootstrap-calendar/angular-bootstrap-calendar-tpls.js"></script>
+			<link rel="stylesheet"
+				href="/zangular/libs/angular-bootstrap-calendar/angular-bootstrap-calendar.min.css" />
+			<link rel="stylesheet"
+				href="/zangular/libs/bootstrap-3.3.6/css/bootstrap.min.css" />
+			<script src="/zangular/libs/chartsjs/Chart.min.js"></script>
+			<script src="/zangular/libs/angular-charts/angular-chart.min.js"></script>
+			<link rel="stylesheet"
+				href="/zangular/libs/angular-charts/angular-chart.min.css" />
+			<script src="/zangular/js/data-mwlcalendar.js"></script>
+		</data-handler>
+		<data-handler>
+			<name>charts</name>
+			<script src="/zangular/libs/chartsjs/Chart.min.js"></script>
+			<script src="/zangular/libs/angular-charts/angular-chart.min.js"></script>
+			<link rel="stylesheet"
+				href="/zangular/libs/angular-charts/angular-chart.min.css" />
+			<script src="/zangular/js/data-charts.js"></script>
+		</data-handler>
 	</client-config>
 </zk>

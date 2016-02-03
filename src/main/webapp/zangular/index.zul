@@ -1,0 +1,66 @@
+<html xmlns:ng="http://angularjs.org" xmlns="native" xmlns:u="zul">
+	<head>
+		<title>ZK Challenge: Power of Data Handler Contest</title>
+		<?script type="text/javascript"
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"?>
+		<?link href="css/template.css" rel="stylesheet"?>
+	</head>
+	<body id="home">
+		<nav id="header"
+			class="navbar navbar-inverse navbar-fixed-top">
+			<div class="container-fluid">
+				<div class="navbar-left" id="myNavbar">
+					<ul class="nav nav-pills "
+						style="visibility: visible;" role="tablist">
+						<li class="active">
+							<a href="#home" data-toggle="tab"
+								aria-expanded="true" aria-controls="home" role="tab">
+								Home
+							</a>
+						</li>
+						<li>
+							<a href="#events" data-toggle="tab"
+								aria-expanded="false" aria-controls="events" role="tab">
+								My Events
+							</a>
+						</li>
+						<li class="">
+							<a href="#dashboard" data-toggle="tab"
+								aria-expanded="false" aria-controls="dashboard" role="tab">
+								My Dashboard
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+
+		<div class="container tab-content">
+			<div role="tabpanel" class="tab-pane col-xs-12 page active"
+				id="home">
+				<u:include mode="defer" src="page-home.zul" />
+			</div>
+			<div role="tabpanel" id="events"
+				class="tab-pane col-xs-12 page">
+				<u:include id="page-calendar" mode="defer"
+					src="page-events.zul" />
+			</div>
+			<div role="tabpanel" id="dashboard"
+				class="tab-pane col-xs-12 page">
+				<u:include mode="defer" src="page-dashboard.zul" />
+			</div>
+		</div>
+		<nav id="footer"
+			class="navbar navbar-inverse navbar-fixed-bottom">
+			<ul class="nav navbar-nav navbar-right">
+				<li>
+					<a href="#" id="author">
+						<span class="glyphicon glyphicon-user"></span>
+						Author: Khaled Mathlouthi [Odaper]
+					</a>
+				</li>
+			</ul>
+		</nav>
+
+	</body>
+</html>

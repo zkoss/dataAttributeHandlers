@@ -1,0 +1,247 @@
+<div xmlns:ng="http://angularjs.org" xmlns="native" xmlns:u="zul"
+	xmlns:ca="client/attribute">
+	<div ng-app="demo" ng-controller="MainCtrl as vm" id="demo">
+		<h1>My Events</h1>
+		<p class="info org">
+			<b>
+				3rd Party Library:
+				<a target="_blank"
+					href="https://github.com/mattlewis92/angular-bootstrap-calendar">
+					https://github.com/mattlewis92/angular-bootstrap-calendar
+				</a>
+			</b>
+			<br></br>
+			This page integrates the "Angular Boostrap Calendar" module
+			to manage the events for the current user using ZK Data
+			handler and Namespaces.
+		</p>
+		<p>
+			Technical details:
+			<ul>
+				<li>Zul: see webapp/zangular/page-events.zul</li>
+				<li>
+					Zk component: a custom div (u:div) is used with an
+					identifier "wmlCalendar" to initialize and interact
+					with the angular calendar vm (see
+					org.zkoss.handlers.odaper.zangular.ui.CalendarUI)
+				</li>
+				<li>
+					ZK View Model: a view model is set to the custom div
+					(see
+					org.zkoss.handlers.odaper.zangular.vm.CalendarVM)
+				</li>
+				<li>
+					Data Handler: a data handler js file is used to
+					interact between ZK ViewModel and Angular Model (see
+					webapp/js/data-mwlcalendar.js)
+				</li>
+			</ul>
+		</p>
+		<p>
+			Note: the angular module is integrated as it is, no changes
+			are done. So, when you "Add new event", scroll to the bottom
+			to add a valid dates for the new event so the calendar will
+			be automatically updated and the new event will be stored in
+			the user's session (the $watch angular listener is used to
+			detect the changes of the data in order to invoke the ZK
+			VM), when you refresh the page you'll have your last events
+			added.
+
+		</p>
+		<div class="col-md-8 col-md-offset-2">
+			<h2 class="text-center">{{ vm.calendarTitle }}</h2>
+
+			<div class="row">
+
+				<div class="col-md-6 text-center">
+					<div class="btn-group">
+
+						<button class="btn btn-primary"
+							mwl-date-modifier="" date="vm.calendarDay"
+							decrement="vm.calendarView">
+							Previous
+						</button>
+						<button class="btn btn-default"
+							mwl-date-modifier="" date="vm.calendarDay" set-to-today="">
+							Today
+						</button>
+						<button class="btn btn-primary"
+							mwl-date-modifier="" date="vm.calendarDay"
+							increment="vm.calendarView">
+							Next
+						</button>
+					</div>
+				</div>
+
+				<br class="visible-xs visible-sm"></br>
+
+				<div class="col-md-6 text-center">
+					<div class="btn-group">
+						<label class="btn btn-primary"
+							ng-model="vm.calendarView" uib-btn-radio="'year'">
+							Year
+						</label>
+						<label class="btn btn-primary"
+							ng-model="vm.calendarView" uib-btn-radio="'month'">
+							Month
+						</label>
+						<label class="btn btn-primary"
+							ng-model="vm.calendarView" uib-btn-radio="'week'">
+							Week
+						</label>
+						<label class="btn btn-primary"
+							ng-model="vm.calendarView" uib-btn-radio="'day'">
+							Day
+						</label>
+					</div>
+				</div>
+
+			</div>
+
+			<br></br>
+
+			<u:div
+				use="org.zkoss.handlers.odaper.zangular.ui.CalendarUI"
+				id="wmlCalendar"
+				viewModel="@id('vms') @init('org.zkoss.handlers.odaper.zangular.vm.CalendarVM')">
+				<mwl-calendar events="vm.events" view="vm.calendarView"
+					view-title="vm.calendarTitle" current-day="vm.calendarDay"
+					on-event-click="vm.eventClicked(calendarEvent)"
+					on-event-times-changed="vm.eventTimesChanged(calendarEvent); calendarEvent.startsAt = calendarNewEventStart; calendarEvent.endsAt = calendarNewEventEnd"
+					edit-event-html="'edit'" delete-event-html="'delete'"
+					on-edit-event-click="vm.eventEdited(calendarEvent)"
+					on-delete-event-click="vm.eventDeleted(calendarEvent)"
+					cell-is-open="vm.isCellOpen" day-view-start="06:00"
+					day-view-end="22:00" day-view-split="30"
+					cell-modifier="vm.modifyCell(calendarCell)">
+				</mwl-calendar>
+			</u:div>
+
+
+			<script type="text/ng-template" id="modalContent.html">
+				<div class="modal-header">
+					<h3 class="modal-title">Event action occurred!</h3>
+				</div>
+				<div class="modal-body">
+					<p>
+						Action:
+						<pre>{{ vm.action }}</pre>
+					</p>
+					<p>
+						Event:
+						<pre>{{ vm.event | json }}</pre>
+					</p>
+				</div>
+				<div class="modal-footer">
+					<button class="btn btn-primary"
+						ng-click="$close()">
+						OK
+					</button>
+				</div>
+			</script>
+
+			<h3 id="event-editor">
+				Edit events
+				<button class="btn btn-primary pull-right"
+					ng-click="vm.events.push({title: 'New event', type: 'important', draggable: true, resizable: true})">
+					Add new
+				</button>
+				<div class="clearfix"></div>
+			</h3>
+
+			<table class="table table-bordered">
+
+				<thead>
+					<tr>
+						<th>Title</th>
+						<th>Type</th>
+						<th>Starts at</th>
+						<th>Ends at</th>
+						<th>Remove</th>
+					</tr>
+				</thead>
+
+				<tbody>
+					<tr
+						ng-repeat="event in vm.events track by $index">
+						<td>
+							<input type="text" class="form-control"
+								ng-model="event.title">
+							</input>
+						</td>
+						<td>
+							<select ng-model="event.type"
+								class="form-control">
+								<option value="important">
+									Important
+								</option>
+								<option value="warning">Warning</option>
+								<option value="info">Info</option>
+								<option value="inverse">Inverse</option>
+								<option value="success">Success</option>
+								<option value="special">Special</option>
+							</select>
+						</td>
+						<td>
+							<p class="input-group"
+								style="max-width: 250px">
+								<input type="text" class="form-control"
+									readonly="readonly" uib-datepicker-popup="dd MMMM yyyy"
+									ng-model="event.startsAt" is-open="event.startOpen"
+									close-text="Close">
+								</input>
+								<span class="input-group-btn">
+									<button type="button"
+										class="btn btn-default"
+										ng-click="vm.toggle($event, 'startOpen', event)">
+										<i
+											class="glyphicon glyphicon-calendar">
+										</i>
+									</button>
+								</span>
+							</p>
+							<uib-timepicker ng-model="event.startsAt"
+								hour-step="1" minute-step="15" show-meridian="true">
+							</uib-timepicker>
+						</td>
+						<td>
+							<p class="input-group"
+								style="max-width: 250px">
+								<input type="text" class="form-control"
+									readonly="readonly" uib-datepicker-popup="dd MMMM yyyy"
+									ng-model="event.endsAt" is-open="event.endOpen"
+									close-text="Close">
+								</input>
+								<span class="input-group-btn">
+									<button type="button"
+										class="btn btn-default"
+										ng-click="vm.toggle($event, 'endOpen', event)">
+										<i
+											class="glyphicon glyphicon-calendar">
+										</i>
+									</button>
+								</span>
+							</p>
+							<uib-timepicker ng-model="event.endsAt"
+								hour-step="1" minute-step="15" show-meridian="true">
+							</uib-timepicker>
+						</td>
+						<td>
+							<button class="btn btn-danger"
+								ng-click="vm.events.splice($index, 1)">
+								Delete
+							</button>
+						</td>
+					</tr>
+				</tbody>
+
+			</table>
+		</div>
+
+	</div>
+
+	<script type="text/javascript"
+		src="/data-attribute-handlers/zangular/js/demo.js">
+	</script>
+
+</div>
