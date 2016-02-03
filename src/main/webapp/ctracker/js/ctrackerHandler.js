@@ -8,7 +8,7 @@
 function (wgt, dataValue) {
 
     var self = this;
-    
+
     // see index.zul <textbox ... ca:data-zkctracker="{iconsDistance: 180, maxCharsPerLine: 20}" />
     var settings = dataValue && dataValue.length > 0 ? jq.evalJSON(dataValue) : {};
 
@@ -21,9 +21,9 @@ function (wgt, dataValue) {
     // initialize ctracker
     wgt._$handle = jq(dom).ctracker({
         data: dataObj,
-        width: wgt.getWidth() || 300,			// I try to inherit width from zk component 
-        height: wgt.getHeight() || 300,			// I try to inherit height from zk component 
-        tabindex: wgt.getTabindex() || 0,		// I try to inherit tab order from zk component 
+        //width: wgt.getWidth() || 300,            // I try to inherit width from zk component
+        //height: wgt.getHeight() || 300,          // I try to inherit height from zk component
+        tabindex: wgt.getTabindex() || 0,        // I try to inherit tab order from zk component
         iconsDistance: settings.iconsDistance || 180,
         maxCharsPerLine: settings.maxCharsPerLine || 30,
 
@@ -34,8 +34,7 @@ function (wgt, dataValue) {
         // - and these other annotations of method @Command("zkctracker$onClickUser"), @Command("zkctracker$onSelectMessage"), @Command("zkctracker$onDeleteMessage") and and @Command("zkctracker$onMoveMessage")
         //   Annotation required to catch 'onClickUser',etc  events from client side.
         // Notice that these commands contain "zkctracker" as a prefix.
-        
-        
+
         onClickUser: function (event, data) {
             // if (console)
             //    console.log('onClickUser' + event);
@@ -72,10 +71,10 @@ function (wgt, dataValue) {
 
         // Parse data
         // For example : {
-		//   "messages": [
-		//     { "id": 100001, "time":"Sun Dec 27 09:36:01 CET 2015",  "from":"David", "text":"Good afternoon. Can I help you?" },
-		//     { "id": 100002, "time":"Sun Dec 27 09:36:47 CET 2015", "from":"Elena",  "text":"Yes, please. We'd like to check in." }
-		//   ],
+        //   "messages": [
+        //     { "id": 100001, "time":"Sun Dec 27 09:36:01 CET 2015",  "from":"David", "text":"Good afternoon. Can I help you?" },
+        //     { "id": 100002, "time":"Sun Dec 27 09:36:47 CET 2015", "from":"Elena",  "text":"Yes, please. We'd like to check in." }
+        //   ],
         //   "users": [
         //     { "id": "David", "image": "images/user_male1.png" }
         //     { "id": "Elena", "image": "user_female.png" }
@@ -85,5 +84,12 @@ function (wgt, dataValue) {
         wgt._$handle.ctracker("setValue", dataObj);
     };
 
+    var setHeightChat = function (value) {
+
+        wgt._$handle.ctracker("setHeight", value);
+    }
+
     wgt.setOverride("setValue", setValueChat);
+
+    wgt.setOverride("setHeight", setHeightChat);
 }

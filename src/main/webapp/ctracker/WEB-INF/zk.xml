@@ -1,44 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zk>
-    <session-config>
-            <device-type>ajax</device-type>    
-            <timeout-uri></timeout-uri>    
+<session-config>
+    <device-type>ajax</device-type>
+        <timeout-uri></timeout-uri>
     </session-config>
     <client-config>
-	    <!--  It specifies whether to debug JavaScript files. 
-	    	  By default, it is false and the compressed version of JavaScript files will be loaded. 
-	    	  They are hard to read and debug, though the footprint is much smaller
-	     -->
-        <debug-js>true</debug-js>
+      <!--  It specifies whether to debug JavaScript files.
+          By default, it is false and the compressed version of JavaScript files will be loaded.
+          They are hard to read and debug, though the footprint is much smaller
+      -->
+      <debug-js>true</debug-js>
     </client-config>
     <library-property>
-	    <!--  It specifies whether to allow the browsers 
-	          to cache so-called class Web resources 
-	          Default is true 
-	    -->
+        <!--  It specifies whether to allow the browsers
+            to cache so-called class Web resources
+            Default is true
+        -->
         <name>org.zkoss.web.classWebResource.cache</name>
         <value>false</value>
     </library-property>
     <client-config>
-       
-       <data-handler>
+
+        <data-handler>
             <name>zkddslick</name> <!-- data-zkddslick -->
-			<script src="/3rdparty/ddslick/jquery.ddslick.js"></script>  <!-- ddslick Library -->          
-            <script src="/js/ddslickHandler.js"></script>  <!-- Data Handler Script -->
+            <script src="/3rdparty/ddslick/jquery.ddslick.js"></script>  <!-- ddslick Library -->
+            <script src="/js/ddslickHandler.js"></script>                <!-- Data Handler Script -->
         </data-handler>
- 
+
         <data-handler>
             <name>zkctracker</name>  <!-- data-zkctracker -->
             <!-- Usually included bat not required for our demo
-				<link href="/3rdparty/jquery-ui/css/base/jquery-ui-1.10.4.custom.css" rel="stylesheet"/>   -
-			-->
-			<script src="/3rdparty/jquery-ui/js/jquery-ui-1.10.4.custom.js"></script>  <!-- Provides API to create JQuery UI widgets -->          
-            <script src="/3rdparty/svg/svg.js"></script> <!-- Lightweight library for manipulating and animating SVG -->
-            <script src="/3rdparty/svg/svg.filter.js"></script>  <!-- svg.js plugin to adding filter functionality -->
-            <script src="/3rdparty/svg/svg.draggable.js"></script>  <!-- svg.js plugin to make svg elements draggable -->
-            <link href="/js/jquery.ctracker.css" rel="stylesheet"/> <!-- zkctracker - Graphics Chat css -->
-            <script src="/js/jquery.ctracker.js"></script>  <!-- zkctracker - Graphics Chat Library -->
-            <script src="/js/ctrackerHandler.js"></script>  <!-- Data Handler Script -->
+            <link href="/3rdparty/jquery-ui/css/base/jquery-ui-1.10.4.custom.css" rel="stylesheet"/>   -
+            -->
+            <script src="/3rdparty/jquery-ui/js/jquery-ui-1.10.4.custom.js"></script>  <!-- Provides API to create JQuery UI widgets -->
+            <script src="/3rdparty/svg/svg.js"></script>              <!-- Lightweight library for manipulating and animating SVG -->
+            <script src="/3rdparty/svg/svg.filter.js"></script>       <!-- svg.js plugin to adding filter functionality -->
+            <script src="/3rdparty/svg/svg.draggable.js"></script>    <!-- svg.js plugin to make svg elements draggable -->
+            <link href="/js/jquery.ctracker.css" rel="stylesheet"/>   <!-- zkctracker - Graphics Chat css -->
+            <script src="/js/jquery.ctracker.js"></script>            <!-- zkctracker - Graphics Chat Library -->
+            <script src="/js/ctrackerHandler.js"></script>            <!-- Data Handler Script -->
         </data-handler>
     </client-config>
 </zk>
