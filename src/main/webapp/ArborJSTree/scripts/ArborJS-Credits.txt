@@ -1,0 +1,5 @@
+All external scripts and ideas from:
+
+http://arborjs.org/
+http://blog.thinkst.com/2011/06/simple-graphs-with-arborjs.html - http://runawaycoder.co.za/2011/06/30/arbor.html
+http://arborjs.org/halfviz
