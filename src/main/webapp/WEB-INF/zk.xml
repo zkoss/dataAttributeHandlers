@@ -233,5 +233,15 @@
 				href="/zangular/libs/angular-charts/angular-chart.min.css" />
 			<script src="/zangular/js/data-charts.js"></script>
 		</data-handler>
+		<data-handler>
+	<!-- data handler name, used in zul -->
+			<name>dharborjs</name> 
+	<!-- resource scripts, loaded initially -->
+			<script src="/ArborJSTree/scripts/arbor.js" />
+			<script src="/ArborJSTree/scripts/graphics.js" />
+			<script src="/ArborJSTree/scripts/renderer.js" />
+	<!-- last script = data handler script for init -->
+			<script src="/ArborJSTree/scripts/dh-main-arbor.js" />
+		</data-handler>
 	</client-config>
 </zk>

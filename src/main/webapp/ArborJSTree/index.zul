@@ -1,0 +1,44 @@
+<zk xmlns:ca="client/attribute" xmlns:n="native">
+	<vlayout hflex="1"
+		viewModel="@id('vm') @init('org.zkoss.handlers.ArborJSTree.viewmodel.ArbosJSTreeViewModel')">
+		<vlayout>
+			<label value="ArborJS visualization"/>
+			<div id="arborjs_here" style="text-align:center;" width="100%"
+				ca:data-dharborjs="${vm.arborjsProperties}">
+				<n:canvas style="border: 1px black solid;width:75%;" id="viewport" width="1500" height="600"></n:canvas>
+			</div>
+			<label value="New node properties"/>
+			<hlayout>
+				<button class="btn btn-default" label="Add a node"
+					onClick="@command('addChildNode')" />
+				<textbox placeholder="Label"
+					value="@save(vm.addNodeLabel)" />
+				<colorbox value="@save(vm.addNodeColor)" />
+				<selectbox model="@init(vm.avalaibleShapes)" />
+			</hlayout>
+			<hlayout>
+				<button class="btn btn-default" label="remove node"
+					onClick="@command('removeNode')" />
+			</hlayout>
+			<label value="ZK Tree visualisation"/>
+			<tree height="300px" model="@load(vm.innerTreeModel)">
+		        <treecols>
+		            <treecol width="125px" label="name" />
+		            <treecol label="label" />
+		            <treecol label="shape" />
+		            <treecol label="color" />
+	       		</treecols>
+				<template name="model">
+		            <treeitem>
+		                <treerow>
+		                    <treecell label="${each.data.name}"/>
+		                    <treecell label="${each.data.label}"/>
+		                    <treecell label="${each.data.shape}"/>
+		                    <treecell style="background-color: ${each.data.color};color:#fff;" label="${each.data.color}"/>
+		                </treerow>
+		            </treeitem>
+		   		</template>
+			</tree>
+		</vlayout>
+	</vlayout>
+</zk>
