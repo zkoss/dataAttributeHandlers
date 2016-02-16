@@ -208,3 +208,6 @@ h2 {
 	transform: rotate(-90deg);
 }
 
+.z-page{
+	overflow:auto;
+}
