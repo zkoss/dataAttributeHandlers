@@ -97,6 +97,6 @@
 		</u:div>
 	</div>
 	<script type="text/javascript"
-		src="/data-attribute-handlers/zangular/js/demo-charts.js">
+		src="js/demo-charts.js">
 	</script>
 </div>

@@ -241,7 +241,7 @@
 	</div>
 
 	<script type="text/javascript"
-		src="/data-attribute-handlers/zangular/js/demo.js">
+		src="js/demo.js">
 	</script>
 
 </div>
