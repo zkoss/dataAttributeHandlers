@@ -34,7 +34,7 @@ public class ArbosJSTreeViewModel {
 	private JSONObject arborjsProperties = new JSONObject();
 	
 	/** Tree model based on default ZK inplementation   */
-	private DefaultTreeNode<ArborJSNode> innerTreeModelRoot = new DefaultTreeNode<ArborJSNode>(new ArborJSNode("xroot"),(Collection<? extends TreeNode<ArborJSNode>>) new ArrayList<ArborJSNode>());
+	private DefaultTreeNode<ArborJSNode> innerTreeModelRoot = new DefaultTreeNode<ArborJSNode>(new ArborJSNode("xroot"),new ArrayList<DefaultTreeNode<ArborJSNode>>());
 	private DefaultTreeModel<ArborJSNode> innerTreeModel = new DefaultTreeModel<ArborJSNode>(innerTreeModelRoot);
 
 	/** VM properties used to communicate with the client library   */
@@ -97,7 +97,7 @@ public class ArbosJSTreeViewModel {
 		arborjsProperties.put("precision", "0.6");
 		
 		/** initialize the ZK tree */
-		DefaultTreeNode<ArborJSNode> visibleRoot = new DefaultTreeNode<ArborJSNode>(new ArborJSNode("0","ZK Tree root"),(Collection<? extends TreeNode<ArborJSNode>>) new ArrayList<ArborJSNode>());
+		DefaultTreeNode<ArborJSNode> visibleRoot = new DefaultTreeNode<ArborJSNode>(new ArborJSNode("0","ZK Tree root"),new ArrayList<DefaultTreeNode<ArborJSNode>>());
 		innerTreeModelRoot.add(visibleRoot);
 		innerTreeModel.addOpenObject(visibleRoot);
 		
