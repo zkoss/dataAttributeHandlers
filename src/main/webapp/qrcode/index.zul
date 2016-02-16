@@ -1,5 +1,6 @@
 <zk>
-    <window title="QrCode component created with datahandler by chillworld" viewModel="@id('vm')@init('org.zkoss.handlers.chillworld.qrcode.vm.IndexVM')">
+    <window title="QrCode component created with datahandler by chillworld" viewModel="@id('vm')@init('org.zkoss.handlers.chillworld.qrcode.vm.IndexVM')"
+    border="normal" height="100%" contentStyle="overflow:auto">
         <label multiline="true">
             Author: Cossaer Filip
             3rd Party Library: qrcode http://davidshimjs.github.io/qrcodejs/
